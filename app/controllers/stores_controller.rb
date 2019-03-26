@@ -8,5 +8,7 @@ class StoresController < ApplicationController
     
     def destroy
     end
+    
+    
 
 end
