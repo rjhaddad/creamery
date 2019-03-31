@@ -1,0 +1,126 @@
+<head><!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+</head>
+
+<div class="inner">
+				<div class="image-holder">
+						<%= link_to image_tag('store2.png', class:"img2") %>
+				</div>
+				
+				
+<%= form_with(model: store, local: true) do |form| %>
+  <% if store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(store.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+      <ul>
+      <% store.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+		<div class="form-wrapper">
+    <%= form.text_field :name, id: :store_name, :class => "form-control", placeholder: " Name" %>
+  </div>
+
+<div class="form-wrapper">
+    <%= form.text_field :street, id: :store_street, :class => "form-control", placeholder: "Street" %>
+  </div>
+
+<div class="form-wrapper">
+    <%= form.text_field :city, id: :store_city, :class => "form-control", placeholder: "City" %>
+  </div>
+
+<div class="form-wrapper">
+    <%= form.text_field :state, id: :store_state, :class => "form-control", placeholder: "State" %>
+  </div>
+
+<div class="form-wrapper">
+    <%= form.text_field :zip, id: :store_zip, :class => "form-control", placeholder: "Zip" %>
+  </div>
+
+<div class="form-wrapper">
+    <%= form.text_field :phone, id: :store_phone, :class => "form-control", placeholder: "Phone" %>
+  </div>
+
+<div class="form-wrapper">
+    <%= form.text_field :latitude, id: :store_latitude, :class => "form-control", placeholder: "Latitude" %>
+  </div>
+
+<div class="form-wrapper">
+    <%= form.text_field :longitude, id: :store_longitude, :class => "form-control", placeholder: "Longitude" %>
+  </div>
+
+<div class="form-wrapper">
+  <%= form.label :active? %>
+    <%= form.check_box :active, id: :store_active %>
+  </div>
+
+
+    
+    <button><%= form.submit %>
+
+					</button>
+				</form>
+
+<% end %>
+</div>
+
+
+
+		<div class="wrapper" style="background-image: url('images/bg-registration-form-1.jpg');">
+			<div class="inner">
+				<div class="image-holder">
+						<%= link_to image_tag('store2.png', class:"img2") %>
+				</div>
+				<form action="">
+					<h3>New Store</h3>
+					<div class="form-wrapper">
+						<input type="text" placeholder="First Name" class="form-control">
+						<input type="text" placeholder="Last Name" class="form-control">
+					</div>
+					<div class="form-wrapper">
+						<input type="text" placeholder="Username" class="form-control">
+						<i class="zmdi zmdi-account"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="text" placeholder="Email Address" class="form-control">
+						<i class="zmdi zmdi-email"></i>
+					</div>
+					<div class="form-wrapper">
+						<select name="" id="" class="form-control">
+							<option value="" disabled selected>Gender</option>
+							<option value="male">Male</option>
+							<option value="femal">Female</option>
+							<option value="other">Other</option>
+						</select>
+						<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" placeholder="Password" class="form-control">
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" placeholder="Confirm Password" class="form-control">
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<button>Register
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+				</form>
+			</div>
+		</div>
+		
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="441b0b59f42c44f058d58747-text/javascript"></script>
+<script type="441b0b59f42c44f058d58747-text/javascript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/a2bd7673/cloudflare-static/rocket-loader.min.js" data-cf-settings="441b0b59f42c44f058d58747-|49" defer=""></script></body><!-- This templates was made by Colorlib (https://colorlib.com) -->

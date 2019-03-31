@@ -7,10 +7,42 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    
+    <!-- Bootstrap Core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+  <!-- Custom CSS -->
+  <link href="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/css/stylish-portfolio.min.css" rel="stylesheet">
+  
+  
   </head>
 
-  <body>
-<h2>Hi</h2>
-    <%= yield %>
+<body id="page-top">      
+
+<%= render 'layouts/navbar' %>
+
+
+
+     
+      		<%= yield  %>
+ 
+      		<%= yield :sidebar %>
+    
+      
+		
+		
+
+		
+
+		<div id = "footer-wrapper" class="footer">
+			<%=  render :partial  => "partials/footer" %>
+		</div>
+		
+
+		
+
+
+		
   </body>
 </html>

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Stores</h1>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Street</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+      <th scope="col">Zip</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Latitude</th>
+      <th scope="col">Longitude</th>
+      <th scope="col">Active</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Destroy</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @stores.each do |store| %>
+    <tr>
+      <td><%= link_to store.name, store %></td>
+      <td><%= store.street %></td>
+        <td><%= store.city %></td>
+        <td><%= store.state %></td>
+        <td><%= store.zip %></td>
+        <td><%= store.phone %></td>
+        <td><%= store.latitude %></td>
+        <td><%= store.longitude %></td>
+        <td><%= store.active %></td>
+        <td><a href = <%= edit_store_path(store) %> <i class="far fa-edit"></i></a> </td>
+        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+
+
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'New Store', new_store_path %>
