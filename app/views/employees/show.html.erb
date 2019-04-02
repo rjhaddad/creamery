@@ -1,9 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<div class="inner">
+				<div class="image-holder">
+						<%= link_to image_tag('Nico.jpg', class:"img2") %>
+				</div>
+<ul>
+<br/><br/><br/>
 <p>
   <strong>First name:</strong>
   <%= @employee.first_name %>
 </p>
+
 
 <p>
   <strong>Last name:</strong>
@@ -37,3 +44,6 @@
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>
+
+</ul>
+</div>

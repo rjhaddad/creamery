@@ -1,12 +1,17 @@
 <p id="notice"><%= notice %></p>
-
+<div class="inner">
+				<div class="image-holder">
+						<%= link_to image_tag('whisk.jpg', class:"img2") %>
+				</div>
+<ul>
+<br/><br/><br/>
 <p>
-  <strong>Store:</strong>
+  <strong>Store ID:</strong>
   <%= @assignment.store_id %>
 </p>
 
 <p>
-  <strong>Employee:</strong>
+  <strong>Employee ID:</strong>
   <%= @assignment.employee_id %>
 </p>
 
@@ -27,3 +32,5 @@
 
 <%= link_to 'Edit', edit_assignment_path(@assignment) %> |
 <%= link_to 'Back', assignments_path %>
+</ul>
+</div>

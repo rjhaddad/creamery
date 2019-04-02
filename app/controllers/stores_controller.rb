@@ -3,6 +3,8 @@ class StoresController < ApplicationController
 
   def index
     @stores = Store.active.alphabetical
+     @active_stores = Store.active.alphabetical
+    @inactive_stores = Store.inactive.alphabetical
   end
   
   def new

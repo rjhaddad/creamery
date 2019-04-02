@@ -1,3 +1,13 @@
+<head><!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+</head>
+
+<div class="inner">
+				<div class="image-holder">
+						<%= link_to image_tag('whisk.jpg', class:"img2") %>
+				</div>
+				
 <%= form_with(model: assignment, local: true) do |form| %>
   <% if assignment.errors.any? %>
     <div id="error_explanation">
@@ -11,32 +21,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :store_id %>
-    <%= form.number_field :store_id, id: :assignment_store_id %>
+<div class="form-wrapper">
+    <%= form.number_field :store_id, id: :assignment_store_id, :class => "form-control", placeholder: "Store ID"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :employee_id %>
-    <%= form.number_field :employee_id, id: :assignment_employee_id %>
+<div class="form-wrapper">    
+    <%= form.number_field :employee_id, id: :assignment_employee_id, :class => "form-control", placeholder: "Employee ID"  %>
   </div>
 
-  <div class="field">
+<div class="form-wrapper">
     <%= form.label :start_date %>
-    <%= form.date_select :start_date, id: :assignment_start_date %>
+    <%= form.text_field :start_date, id: :assignment_start_date, :class => "form-control", :type => "date", placeholder: "Start Date" %>
   </div>
 
-  <div class="field">
+  <div class="form-wrapper">
     <%= form.label :end_date %>
-    <%= form.date_select :end_date, id: :assignment_end_date %>
+    <%= form.text_field :end_date, id: :assignment_end_date, :class => "form-control", :type => "date", placeholder: "End Date" %>
   </div>
 
-  <div class="field">
-    <%= form.label :pay_level %>
-    <%= form.number_field :pay_level, id: :assignment_pay_level %>
+  <div class="form-wrapper">
+    <%= form.number_field :pay_level, id: :assignment_pay_level, :class => "form-control", placeholder: "Pay Level" %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</div>

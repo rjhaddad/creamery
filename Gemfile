@@ -41,7 +41,6 @@ gem 'validates_timeliness'
 
 #Gems for style: bootstrap
 gem 'bootstrap'
-gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'font-awesome-sass', '~> 5.8.1'
 #jquery for bootstrap

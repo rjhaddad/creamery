@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Assignments</h1>
+<h1 class = 'titles'>Assignments</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Store</th>
@@ -10,21 +10,21 @@
       <th>Start date</th>
       <th>End date</th>
       <th>Pay level</th>
-      <th colspan="3"></th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>
 
   <tbody>
     <% @assignments.each do |assignment| %>
       <tr>
-        <td><%= assignment.store_id %></td>
+        <td><%= link_to assignment.store_id, assignment %></td>
         <td><%= assignment.employee_id %></td>
         <td><%= assignment.start_date %></td>
         <td><%= assignment.end_date %></td>
         <td><%= assignment.pay_level %></td>
-        <td><%= link_to 'Show', assignment %></td>
-        <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
-        <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><a href = <%=  edit_assignment_path(assignment) %> <i class="far fa-edit"></i></a> </td>
+        <td><%= link_to 'Delete', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Assignment', new_assignment_path %>
+<a class = "mybtn" href = "assignments/new" >New Assignment</a>

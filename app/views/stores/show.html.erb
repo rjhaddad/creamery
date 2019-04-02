@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+
+<div class="inner">
+				<div class="image-holder">
+						<%= link_to image_tag('store2.png', class:"img2") %>
+				</div>
+<ul>
+<br/>
 <p>
   <strong>Name:</strong>
   <%= @store.name %>
@@ -47,3 +54,6 @@
 
 <%= link_to 'Edit', edit_store_path(@store) %> |
 <%= link_to 'Back', stores_path %>
+
+</ul>
+</div>

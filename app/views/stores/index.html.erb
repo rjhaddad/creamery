@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Stores</h1>
+<h1 class = 'titles'>Stores</h1>
 
 
 <table class="table table-hover">
@@ -16,7 +16,7 @@
       <th scope="col">Longitude</th>
       <th scope="col">Active</th>
       <th scope="col">Edit</th>
-      <th scope="col">Destroy</th>
+      <th scope="col">Delete</th>
 
 
 
@@ -35,7 +35,7 @@
         <td><%= store.longitude %></td>
         <td><%= store.active %></td>
         <td><a href = <%= edit_store_path(store) %> <i class="far fa-edit"></i></a> </td>
-        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
 
 
@@ -46,4 +46,5 @@
 
 <br>
 
-<%= link_to 'New Store', new_store_path %>
+
+<a class = "mybtn" href = "stores/new" >New Store</a>
