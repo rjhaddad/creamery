@@ -1,10 +1,14 @@
 class AssignmentsController < ApplicationController
-    before_action :set_assignment, only: [:edit, :update, :destroy]
+    before_action :set_assignment, only: [:show, :edit, :update, :destroy]
     
+  def index
+    @assignments = Assignment.all
+  end
+  
     def new
-        @assignment = Assignment.new
-		@assignment.store_id = params[:store_id] unless params[:store_id].nil?
-		@assignment.employee_id = params[:employee_id] unless params[:employee_id].nil?
+    @assignment = Assignment.new
+		# @assignment.store_id = params[:store_id] unless params[:store_id].nil?
+		# @assignment.employee_id = params[:employee_id] unless params[:employee_id].nil?
     end 
 
     def create
