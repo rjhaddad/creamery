@@ -6,6 +6,11 @@ class Store < ApplicationRecord
   has_many :assignments
   has_many :employees, through: :assignments  
   
+  #Phase 4
+  has_many :shifts, through: :assignments
+  has_many :store_flavors
+  has_many :flavors, through: :store_flavors
+  
   # Validations
   # make sure required fields are present
   validates_presence_of :name, :street, :zip

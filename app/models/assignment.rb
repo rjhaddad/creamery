@@ -6,6 +6,9 @@ class Assignment < ApplicationRecord
   belongs_to :employee
   belongs_to :store
   
+  #Phase 4
+  has_many :shifts
+  
   # Validations
   validates_numericality_of :pay_level, only_integer: true, greater_than: 0, less_than: 7
   validates_date :start_date, on_or_before: lambda { Date.current }, on_or_before_message: "cannot be in the future"
