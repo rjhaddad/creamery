@@ -9,6 +9,12 @@ class Assignment < ApplicationRecord
   #Phase 4
   has_many :shifts
   
+  # Callbacks
+  before_create :end_previous_assignment
+  before_update :remove_future_shifts_from_terminated_assignment
+  before_destroy :is_destroyable?
+  after_rollback :terminate_assignment
+  
   # Validations
   validates_numericality_of :pay_level, only_integer: true, greater_than: 0, less_than: 7
   validates_date :start_date, on_or_before: lambda { Date.current }, on_or_before_message: "cannot be in the future"
@@ -55,5 +61,35 @@ class Assignment < ApplicationRecord
       errors.add(:store_id, "is not an active store at the creamery")
     end
   end
+  
+    def remove_future_shifts_from_terminated_assignment
+    terminate_all_future_shifts unless self.end_date.nil?
+  end
+
+  def terminate_all_future_shifts
+    @future_shifts = self.shifts.upcoming
+    @future_shifts.each {|s| s.destroy}
+  end
+
+  def is_destroyable?
+    @destroyable = self.shifts.past.empty?
+  end
+  
+  def terminate_assignment
+    terminate_all_future_shifts if !@destroyable.nil? && @destroyable == false
+    self.update_attribute(:end_date, Date.current)if !@destroyable.nil? && @destroyable == false
+    @destroyable = nil
+  end
+  
+    def end_previous_assignment
+    current_assignment = Employee.find(self.employee_id).current_assignment
+    if current_assignment.nil?
+      return true 
+    else
+      terminate_all_future_shifts
+      current_assignment.update_attribute(:end_date, self.start_date.to_date)
+    end
+  end
+  
 end
 

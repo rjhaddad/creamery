@@ -1,8 +1,12 @@
 class EmployeesController < ApplicationController
 	before_action :set_employee, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
   def index
     @employees = Employee.active.alphabetical
+    # @active_employees = Employee.active.alphabetical.paginate(page: params[:active_employees]).per_page(10)
+    # @inactive_employees = Employee.inactive.alphabetical.paginate(page: params[:inactive_employees]).per_page(10)
+
   end
   
   def new

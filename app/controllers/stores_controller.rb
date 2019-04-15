@@ -1,6 +1,7 @@
 class StoresController < ApplicationController
     before_action :set_store, only: [:show, :edit, :update, :destroy]
-
+    authorize_resource
+    
   def index
     @stores = Store.active.alphabetical
      @active_stores = Store.active.alphabetical
@@ -10,7 +11,16 @@ class StoresController < ApplicationController
   def new
       @store = Store.new
   end
-    
+  
+  
+  #   def show
+  #   @current_assignments = @store.assignments.current.by_employee.paginate(page: params[:current_assignments]).per_page(8)
+  #   @store_flavors = @store.store_flavors
+  #   @store.get_store_coordinates
+  #   @store.save!
+  # end
+  
+  
   def create
     @store = Store.new(store_params)
     if @store.save

@@ -1,6 +1,9 @@
 class Store < ApplicationRecord
 # Callbacks
   before_save :reformat_phone
+  #phase4
+  before_destroy :is_destroyable?
+  after_rollback :convert_to_inactive
   
   # Relationships
   has_many :assignments
@@ -41,6 +44,19 @@ class Store < ApplicationRecord
     phone = self.phone.to_s  # change to string in case input as all numbers 
     phone.gsub!(/[^0-9]/,"") # strip all non-digits
     self.phone = phone       # reset self.phone to new string
+  end
+  
+  def is_destroyable?
+    @destroyable = false
+  end
+  
+  def convert_to_inactive
+    make_inactive if !@destroyable.nil? && @destroyable == false
+    @destroyable = nil
+  end
+
+  def make_inactive
+    self.update_attribute(:active, false)
   end
 
 end
