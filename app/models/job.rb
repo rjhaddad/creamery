@@ -8,7 +8,7 @@ class Job < ApplicationRecord
   scope :active,       -> { where(active: true) }
   scope :inactive,     -> { where(active: false) }
   
-  scope :alphabetical, order("name")
+  scope :alphabetical, -> { order('name') }
   
   before_destroy :is_destroyable?
   after_rollback :convert_to_inactive

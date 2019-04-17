@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
      def index
+       @user = User.all
   end
 
   def show
+     @user = User.all
   end
 
   def new
-    @user = User.find(current_user)
+    		@user = User.new
+		@user.employee_id = params[:employee_id] unless params[:employee_id].nil?
   end
 
   def edit
