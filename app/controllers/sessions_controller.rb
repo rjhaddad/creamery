@@ -9,11 +9,11 @@ class SessionsController < ApplicationController
 
 
         if logged_in? and current_user.role? :employee
-          redirect_to employee_home_path, notice: "Logged in!"
+          redirect_to employees_path, notice: "Logged in! as employee"
         elsif logged_in? and current_user.role? :manager
-          redirect_to dashboard_path, notice: "Logged in!"
+          redirect_to dashboard_path, notice: "Logged in! as manager"
         elsif logged_in? and current_user.role? :admin
-          redirect_to admin_home_path, notice: "Logged in!"
+          redirect_to admin_home_path, notice: "Logged in! as admin"
         else
           redirect_to home_path, notice: "Logged in!"
         end

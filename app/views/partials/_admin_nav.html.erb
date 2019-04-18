@@ -1,0 +1,76 @@
+<div class="contain-to-grid">
+  <nav class="top-bar" data-topbar role="navigation"> 
+    <section class="top-bar-section">
+
+      <ul class="left">
+        <!-- link to home -->
+        <li><%= link_to "Dashboard", admin_home_path %></li>
+        
+        <li class="has-dropdown">
+          <%= link_to "Stores", stores_path %>
+          <ul class="dropdown">
+            <li><%= link_to "See Stores", stores_path %></li>
+            <li><%= link_to "Add a Store", new_store_path %></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown">
+          <%= link_to "Jobs", jobs_path %>
+          <ul class="dropdown">
+            <li><%= link_to "See Jobs", jobs_path %></li>
+            <li><%= link_to "Add a Job ", new_job_path %></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown">
+          <%= link_to "Flavors", flavors_path %>
+          <ul class="dropdown">
+            <li><%= link_to "See Flavors", flavors_path %></li>
+            <li><%= link_to "Add a Flavor ", new_flavor_path %></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown">
+          <%= link_to "Employees", employees_path %>
+          <ul class="dropdown">
+            <li><%= link_to "See Employees", employees_path %></li>
+            <li><%= link_to "Add an Employee", new_employee_path %></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown">
+          <%= link_to "Assignments", assignments_path %>
+          <ul class="dropdown">
+            <li><%= link_to "See Assignments", assignments_path %></li>
+            <li><%= link_to "Create New Assignment", new_assignment_path %></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown">
+          <%= link_to "Shifts", shifts_path %>
+          <ul class="dropdown">
+            <li><%= link_to "Completed Shifts", shifts_path %></li>
+            <li><%= link_to "Incomplete Shifts", incomplete_shifts_path %></li>
+            <li><%= link_to "New Shifts", new_shifts_path %></li>
+          </ul>
+        </li>
+
+      </ul>
+      
+
+      <ul class = "right">
+
+        <li><%= link_to "My Profile", account_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to 'Logout', logout_path %></li>
+       <% else %>
+          <li><%= link_to 'Login', login_path %></li>
+       <% end %>
+     </ul>
+      
+
+    </section>
+  </nav>
+</div>
+
+          

@@ -114,7 +114,7 @@
 	  <%= render 'stores/list_of_flavors' %>
 
 	  <div id = "add-button">
-		  <%= link_to(new_store_flavor_path(store_id: @store.id), id: 'new_store_flavor_link', class: 'button tiny radius', remote: true) do %>
+		  <%= link_to(new_store_flavor_path(store_id: @store), id: 'new_store_flavor_link', class: 'button tiny radius', remote: true) do %>
 		    Add New Flavor
 		  <% end %>
 		</div>

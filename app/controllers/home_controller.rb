@@ -21,13 +21,13 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-    unless current_user.employee.role? :admin
+    #unless current_user.employee.role? :admin
       @employee = current_user.employee
-    	@store =  Assignment.current.for_employee(current_user.employee_id).first.store
-      @store_flavors = @store.store_flavors
-      @today_shifts = Shift.for_store(@store).for_next_days(0).chronological.paginate(page: params[:today_shifts]).per_page(5)
-      @assignments = Assignment.current.for_store(@store).by_employee.paginate(page: params[:assignments]).per_page(5)
-    end
+    	#@store =  Assignment.current.for_employee(current_user.employee_id).first.store
+     @store_flavors = Store.all #@store.store_flavors
+      @today_shifts = Shift.for_store(@store).for_next_days(0).chronological
+      @assignments = Assignment.current.for_store(@store).by_employee
+    #end
   end
 
   def manage_shifts

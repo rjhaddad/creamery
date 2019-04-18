@@ -18,8 +18,22 @@
   
   </head>
 
- 
-<%= render 'layouts/navbar' %>
+<!--     IF USER IS LOGGED IN THEN SHOW NAVIGATION -->
+  <% if logged_in? %>
+    <% if current_user.employee.role== "manager" %>
+      <%= render :partial => "partials/nav_manager" %>
+    <% elsif current_user.employee.role== "employee" %>
+      <%= render :partial => "partials/employee_nav" %>
+    <% elsif current_user.employee.role== "admin" %>
+      <%= render :partial => "partials/admin_nav" %>
+    <%end%> 
+    
+  <% else %>
+    <%= render  "layouts/navbar" %>
+  <%end%> 
+  
+  
+
 <br>
 
 <body id="page-top">     

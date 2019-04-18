@@ -1,0 +1,29 @@
+<div id="list_of_flavors">
+	<% unless @store_flavors.empty? %>
+	<table class="table table-striped">
+		<thead>
+	      <tr>
+	        <th>Flavors</th>
+	        <th>&nbsp;</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	          <% for store_flavor in @store_flavors %>
+	          <tr>
+	          <td><%= link_to store_flavor.flavors.name, flavor_path(store_flavor.flavors) %></td>
+	          <td>
+	          	<div id = "delete-button">
+				    <%= link_to(image_tag("y.png"), store_flavor_path(store_flavor), method: 'delete', data: {confirm: "Are you sure you want to permanently delete this flavor?"}) %>
+
+				</div>
+      		  </td>
+	    	  <% end %>
+		        
+		      </p>
+		   
+		</tbody>
+	</table>
+	<%end%>
+
+</div>
+
