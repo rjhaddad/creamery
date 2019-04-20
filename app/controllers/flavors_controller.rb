@@ -1,7 +1,7 @@
 class FlavorsController < ApplicationController
 
   before_action :set_flavor, only: [:show, :edit, :update, :destroy]
-  #authorize_resource
+  authorize_resource
   
   def index
     @active_flavors = Flavor.active.alphabetical

@@ -1,76 +1,111 @@
-<div class="contain-to-grid">
-  <nav class="top-bar" data-topbar role="navigation"> 
-    <section class="top-bar-section">
-
-      <ul class="left">
+<nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/home#index">A&M <i class="fas fa-ice-cream"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
         <!-- link to home -->
-        <li><%= link_to "Dashboard", admin_home_path %></li>
+        <li class="nav-item">
+          <%= link_to "Dashboard", admin_home_path,  { :class => "nav-link" } %></li>
         
-        <li class="has-dropdown">
-          <%= link_to "Stores", stores_path %>
-          <ul class="dropdown">
-            <li><%= link_to "See Stores", stores_path %></li>
-            <li><%= link_to "Add a Store", new_store_path %></li>
-          </ul>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Stores
+        </a>
+        
+        
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "See Stores", stores_path,  { :class => "dropdown-item" } %>
+            <%= link_to "Add a Store", new_store_path,  { :class => "dropdown-item" } %>
+          </div>
         </li>
-
-        <li class="has-dropdown">
-          <%= link_to "Jobs", jobs_path %>
-          <ul class="dropdown">
-            <li><%= link_to "See Jobs", jobs_path %></li>
-            <li><%= link_to "Add a Job ", new_job_path %></li>
-          </ul>
+        
+        
+        
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Jobs
+        </a>
+        
+        
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "See Jobs", jobs_path,  { :class => "dropdown-item" } %>
+            <%= link_to "Add a Job", new_job_path,  { :class => "dropdown-item" } %>
+          </div>
         </li>
-
-        <li class="has-dropdown">
-          <%= link_to "Flavors", flavors_path %>
-          <ul class="dropdown">
-            <li><%= link_to "See Flavors", flavors_path %></li>
-            <li><%= link_to "Add a Flavor ", new_flavor_path %></li>
-          </ul>
-        </li>
-
-        <li class="has-dropdown">
-          <%= link_to "Employees", employees_path %>
-          <ul class="dropdown">
-            <li><%= link_to "See Employees", employees_path %></li>
-            <li><%= link_to "Add an Employee", new_employee_path %></li>
-          </ul>
-        </li>
-
-        <li class="has-dropdown">
-          <%= link_to "Assignments", assignments_path %>
-          <ul class="dropdown">
-            <li><%= link_to "See Assignments", assignments_path %></li>
-            <li><%= link_to "Create New Assignment", new_assignment_path %></li>
-          </ul>
-        </li>
-
-        <li class="has-dropdown">
-          <%= link_to "Shifts", shifts_path %>
-          <ul class="dropdown">
-            <li><%= link_to "Completed Shifts", shifts_path %></li>
-            <li><%= link_to "Incomplete Shifts", incomplete_shifts_path %></li>
-            <li><%= link_to "New Shifts", new_shifts_path %></li>
-          </ul>
-        </li>
-
-      </ul>
       
 
-      <ul class = "right">
 
-        <li><%= link_to "My Profile", account_path %></li>
+<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Flavors
+        </a>
+        
+        
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         <%= link_to "See Flavors", flavors_path,  { :class => "dropdown-item" } %>
+            <%= link_to "Add a Flavor", new_flavor_path,  { :class => "dropdown-item" } %>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Employees
+        </a>
+        
+        
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+       <%= link_to "See Employees", employees_path,  { :class => "dropdown-item" } %>
+            <%= link_to "Add a Employee", new_employee_path,  { :class => "dropdown-item" } %>
+          </div>
+        </li>
+
+
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Assignments
+        </a>
+        
+        
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         <%= link_to "See Assignments", assignments_path,  { :class => "dropdown-item" } %>
+            <%= link_to "Create New Assignment", new_assignment_path, { :class => "dropdown-item" } %>
+          </div>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Shifts
+        </a>
+        
+        
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Completed Shifts", shifts_path,  { :class => "dropdown-item" } %>
+         <%= link_to "Incomplete Shifts", incomplete_shifts_path,  { :class => "dropdown-item" } %>
+
+            <%= link_to " New Shifts", new_shifts_path,  { :class => "dropdown-item" } %>
+          </div>
+        </li>
+
+       
+
+
+      </ul>
+      <ul class="navbar-nav ml-auto">
+
+
+        <li><%= link_to "My Profile", account_path,  { :class => "nav-link" } %></li>
         <% if logged_in? %>
-          <li><%= link_to 'Logout', logout_path %></li>
+          <li><%= link_to 'Logout', logout_path,  { :class => "nav-link" } %></li>
        <% else %>
-          <li><%= link_to 'Login', login_path %></li>
+          <li><%= link_to 'Login', login_path,  { :class => "nav-link" } %></li>
        <% end %>
      </ul>
       
-
-    </section>
-  </nav>
-</div>
-
-          
+  </div>
+</nav>

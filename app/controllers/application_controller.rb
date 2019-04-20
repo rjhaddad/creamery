@@ -1,4 +1,10 @@
 class ApplicationController < ActionController::Base
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "You are not authorized to access this page."
+    redirect_to home_path
+  end
+  
     private
 
   def current_user

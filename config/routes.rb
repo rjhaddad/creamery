@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   
   # Semi-static page routes
   get 'home' => 'home#home', as: :home
+    get 'guest' => 'home#guest', as: :guest
+
   get 'about' => 'home#about', as: :about
   get 'contact' => 'home#contact', as: :contact
   get 'privacy' => 'home#privacy', as: :privacy
@@ -31,6 +33,8 @@ Rails.application.routes.draw do
   get 'home/employee_home' => 'home#employee_home', :as => :employee_home
   get 'home/new_shifts' => 'home#new_shifts', :as => :new_shifts
   get 'home/admin_home' => 'home#admin_home', :as => :admin_home
+  get 'home/guest_homepage' => 'home#guest_homepage', :as => :guest_homepage
+  get 'home/manager_home' => 'home#manager_home', :as => :manager_home
   get 'shift/incomplete_shifts' => 'shifts#incomplete_shifts', :as => :incomplete_shifts
 
   patch 'start_shift/:id' => 'shifts#start_shift', as: :start_shift

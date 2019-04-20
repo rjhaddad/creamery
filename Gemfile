@@ -48,6 +48,12 @@ gem 'jquery-rails'
 gem 'popper_js', '~> 1.14.5'
 gem 'tether-rails'
 
+gem 'cancancan'
+
+gem 'will_paginate'
+
+gem 'nested_form'
+
 #testing
 gem 'rails-controller-testing'
 

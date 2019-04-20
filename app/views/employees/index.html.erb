@@ -1,11 +1,19 @@
+<!-- MDBootstrap Datatables  -->
+<link href="css/addons/datatables.min.css" rel="stylesheet">
 <p id="notice"><%= notice %></p>
 
-<h1 class = 'titles'>Employees</h1>
 
-<table class="table table-hover">
-  <thead>
+
+<h1 class = 'titles'>
+  All Employees
+<% if current_user.role? :manager %>
+	at the <%= @store %> Store
+<% end %>
+</h1>
+
+<table id="dtBasicExample" class="table table-hover table-sm" cellspacing="0" width="100%">  <thead>
     <tr>
-      <th>First name</th>
+      <th class="th-sm">First name</th>
       <th>Last name</th>
       <th>Ssn</th>
       <th>Date of birth</th>

@@ -1,9 +1,9 @@
 class EmployeesController < ApplicationController
 	before_action :set_employee, only: [:show, :edit, :update, :destroy]
-  #authorize_resource
+  authorize_resource
 
   def index
-    @employees = Employee.active.alphabetical
+    @employees = Employee.all
     # @active_employees = Employee.active.alphabetical.paginate(page: params[:active_employees]).per_page(10)
     # @inactive_employees = Employee.inactive.alphabetical.paginate(page: params[:inactive_employees]).per_page(10)
 
@@ -26,7 +26,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
     @employee.destroy
     flash[:notice] = "Employee #{@employee.first_name} has been successfully removed."
-    redirect_to stores_url
+    redirect_to employees_url
   end
     
   def edit

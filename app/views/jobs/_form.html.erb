@@ -1,0 +1,30 @@
+<div class="image-holder">
+						<%= link_to image_tag('job.png', class:"img2") %>
+				</div>
+
+<%= form_with(model: @job, local: true) do |f| %>
+
+    <legend><%= controller.action_name.capitalize %> Job</legend>
+
+				
+   <div class="form-wrapper">		     
+   <%= f.label :name %>
+   <%= f.text_field :name, :class => "form-control" %>
+   </div>
+   
+    <div class="form-wrapper">
+    <%= f.label :description %>
+    <%= f.text_field :description, :class => "form-control" %>
+    </div>
+    
+    <div class="form-wrapper">
+    <%= f.label :active %>
+    <%= f.check_box :active %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => "btn btn-dark" %>
+      <%= link_to 'Cancel', jobs_path, :class => "btn btn-danger" %>
+    </div>
+    
+<% end %>

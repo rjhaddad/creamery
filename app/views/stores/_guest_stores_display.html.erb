@@ -1,0 +1,30 @@
+<br/>
+<h2>Our Stores</h2>
+<div id = "subtitle"><p>We currently have <%= Store.active.size %> different stores.</p></div>
+<br/>
+
+<% if @active_stores.empty? %>
+  <p><em>There are no active stores at this time.</em></p>
+<% else %>
+      
+      <div >
+        <% @active_stores.each do |store| %>
+        
+        
+        <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to store.name, store_path(store) %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= number_to_phone store.phone %> </h6>
+    <p class="card-text"> <%= store.street %> <%= store.city %>, <%= store.state %> <%= store.zip %></p>
+ 
+  </div>
+</div>
+
+      
+         
+      <% end %>
+    </div>
+<% end %>
+
+<br/>
+<br/>

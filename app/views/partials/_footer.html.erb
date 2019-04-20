@@ -1,19 +1,30 @@
-<div >
+<div class ="text-light bg-dark">
 	
-<div id="footer">
+<div id="footer text-light bg-dark">
 	
     
 
-		<p id="copy">
-		
-		<%= link_to 'About the Creamery', about_path %>&nbsp;&nbsp;::&nbsp;&nbsp;
-	<%= link_to 'Contact Us', contact_path %>&nbsp;&nbsp;::&nbsp;&nbsp;
-	<%= link_to 'Privacy Policy', privacy_path %>
+
+		<%= link_to 'About the Creamery', about_path, {:class=>"text-light bg-dark"} %>&nbsp;&nbsp;::&nbsp;&nbsp;
+	<%= link_to 'Contact Us', contact_path, {:class=>"text-light bg-dark"} %>&nbsp;&nbsp;::&nbsp;&nbsp;
+	<%= link_to 'Privacy Policy', privacy_path, {:class=>"text-light bg-dark"} %>
 	
-	 <span style="float:right;">
-	Webmaster: <%= mail_to("rhaddad@andrew.cmu.edu", "Reem Al-Haddad", :encode => "javascript") %> 
+	 <span style="float:right; ">
+	Webmaster: <%= mail_to("rhaddad@andrew.cmu.edu", "Reem Al-Haddad", :encode => "javascript" ) %> 
 		&copy 2019
 	</span>	
-		</p>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

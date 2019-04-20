@@ -1,7 +1,7 @@
 class ShiftJobsController < ApplicationController
     
-#     before_action :set_shift_job, only: [:edit, :update, :destroy]
-#   authorize_resource
+before_action :set_shift_job, only: [:edit, :update, :destroy]
+authorize_resource
   
 
   def index

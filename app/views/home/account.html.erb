@@ -2,7 +2,7 @@
 <h2><%= @employee.proper_name %></h2>
 <br/>
 
-<div class="row">
+<div >
 
   <div class="small-6 columns">
 
@@ -37,13 +37,16 @@
   <div class="small-6 columns">
       <h4>CURRENT ASSIGNMENT</h4>
 
-		<p><b>Store:</b> <%= @current_assgn.store.name %><br/>
+		<p><b>Store:</b> <%= @current_assgn.store.name
+		%><br/>
 
 		<b>Role:</b> <%= @employee.role.capitalize %><br/>
 
-		<b>Pay Level:</b> <%= @current_assgn.pay_level %><br/>
+		<b>Pay Level:</b> <%= @current_assgn.pay_level 
+		%><br/>
 
-		<b>Start Date:</b> <%= @current_assgn.start_date.strftime("%m/%d/%y") %></p>
+		<b>Start Date:</b> <%= @current_assgn.start_date.strftime("%m/%d/%y") 
+		%></p>
 	</div>
 
   <div class="small-6 columns">

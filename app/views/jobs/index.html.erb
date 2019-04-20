@@ -1,6 +1,6 @@
 <% if logged_in? and current_user.role? :admin %>
 	<br/>
-	<h2>JOBS</h2>
+	<h2>Jobs</h2>
 	<div id = "subtitle"><p><%= Job.active.size %> active job(s).
 	<%= Job.inactive.size %> inactive job(s).</p></div>
 	<br/>
@@ -10,12 +10,8 @@
                                                          sidebar: "inactive_jobs"} %>
 <% else %>
 <br/>
-	<h2>JOBS</h2>
+	<h2>Jobs</h2>
 	<div id = "subtitle"><p>We currently have <%= Job.active.size %> jobs.</p></div>
 	<br/>
-  <div class="row">
-    <div class="small-6 small-offset-3 columns">
 	<%= render partial: "active_jobs" %>
-	</div>
-</div>
 <% end %>

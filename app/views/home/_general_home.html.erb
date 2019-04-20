@@ -1,24 +1,29 @@
-<h2>Welcome To A &amp; M Creamery</h2>
-<br />
-<div class="row">
-	<div class="small-7 columns">
-		<p>
-			A &amp; M Creamery is one of the smallest, but absolutely best, chain of 
-			ice cream shops we know in the Greater Pittsburgh area.
-			You should come to one of our stores and buy lots of our ice cream now.  
-			Our ice cream is delicious, nutritious and amazing in every way.  
-			Why are you still reading this?  You should be down here buying ice 
-			cream right now.  Stop reading and get your backside moving to an 
-			A &amp; M Creamery store now.  
-			(Still reading? What are you waiting for?)
-		</p>
-	</div>
-	<div class="small-1 columns">
-		&nbsp;
-	</div>
-	<div class="small-4 columns">
-		&nbsp;
-	</div>
+
+ <!-- Header -->
+  <header class="mastheadbg">
+    <div class="container text-center my-auto">
+      <br><br><br>
+      <h1 class="mb-1"> Amazing & Marvelous Creamery</h1>
+      <h3 class="mb-5">
+        <em>The best creamery in town!</em>
+      </h3>
+      
+      
+<% if logged_in? %>
+         <%= link_to 'Logout', logout_path, { :class=> "btn btn-dark js-scroll-trigger" } %>
+ 
+ <% else %>
+ <a class="btn btn-dark js-scroll-trigger" href="guest" >Continue as a guest</a>
+            <a class="btn btn-dark js-scroll-trigger" href="/sessions/new">Login</a>
+        <% end %>
+      
+      
+
+    </div>
+    <div class="overlay"></div>
+  </header>
+  
+
+
 </div>
-
-
+    

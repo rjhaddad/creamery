@@ -1,6 +1,6 @@
 <% if logged_in? and current_user.role? :admin %>
 	<br/>
-	<h2>FLAVORS</h2>
+	<h2>Flavors</h2>
 	<div id = "subtitle"><p><%= Flavor.active.size %> active flavor(s).
 	<%= Flavor.inactive.size %> inactive flavor(s).</p></div>
 	<br/>
@@ -10,12 +10,10 @@
 	sidebar: "inactive_flavors"} %>
 <% else %>
 	<br/>
-	<h2>FLAVORS</h2>
-	<div id = "subtitle"><p>We currently have <%= Flavor.active.size %> unique flavors.</p></div>
+	<h2>Flavors</h2>
+	<div id = "subtitle"><p>We currently have <%= Flavor.active.size %> unique flavor(s).</p></div>
 	<br/>
-	<div class="row">
-		<div class="small-6 small-offset-4 columns">
+
 			<%= render partial: "active_flavors" %>
-		</div>
-	</div>
+	
 <% end %>

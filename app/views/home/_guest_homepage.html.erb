@@ -1,111 +1,45 @@
 
- <!-- Header -->
-  <header class="mastheadbg">
-    <div class="container text-center my-auto">
-      <br><br><br>
-      <h1 class="mb-1"> Amazing & Marvelous Creamery</h1>
-      <h3 class="mb-5">
-        <em>The best creamery in town!</em>
-      </h3>
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
-    </div>
-    <div class="overlay"></div>
-  </header>
-  
-  
-<div class="container-fluid">
-
-    
-
+<div class="container">
   <div class="row">
-    <div class="col-sm">
-    	
-     <div class="card" style="width: 18rem;">
-		
-		<%= link_to image_tag('store.jpg', class:"card-img-top") %>  
-		
-  
-  <div class="card-body">
-    <h5 class="card-title">Our Stores</h5>
-    <p class="card-text">
-    	
-   	<ul class="list-group">
-	<% for store in @stores %>
-		<li class="list-group-item">
-			<%=  link_to "#{store.name}", store_path(store) %></li>
-			
-		
-	<% end %>
-    </ul>	
-    <a href="stores#index" class="btn btn-primary">View all stores</a>
-    
-  </div></div></div>
-  
-   <div class="col-sm">
-    	
-     <div class="card" style="width: 18rem;">
-		
-		<%= link_to image_tag('employee.jpg', class:"card-img-top") %>  
-		
-  
-  <div class="card-body">
-    <h5 class="card-title">Our Employees</h5>
-    <p class="card-text">
-    	
-   	<ul class="list-group">
-	<% for store in @stores %>
-		<li class="list-group-item">
-			<%=  link_to "#{store.name}", store_path(store) %></li>
-			
-		
-	<% end %>
-    </ul>	
-    <a href="employees#index" class="btn btn-primary">View all employees</a>
-    
-  </div></div></div>  
-  
-  <div class="col-sm">
-    	
-     <div class="card" style="width: 18rem;">
-		
-		<%= link_to image_tag('whisk2.jpg', class:"card-img-top") %>  
-		
-  
-  <div class="card-body">
-    <h5 class="card-title">Our Assignments</h5>
-    <p class="card-text">
-    	
-   	<ul class="list-group">
-	<% for store in @stores %>
-		<li class="list-group-item">
-			<%=  link_to "#{store.name}", store_path(store) %></li>
-			
-		
-	<% end %>
-    </ul>	
-    <a href="#" class="btn btn-primary">View all assignments</a>
-    
-  </div></div></div> 
-  
-<div class="col-sm">
-    	
-     <div class="card" style="width: 18rem;">
-		
-				<p> The Amazing & Marvelous Creamery is the biggest chain of icecream stores in the US. Come try our delicious flavors!</p>
-
-  
-  <div class="card-body">
-    <h5 class="card-title">About</h5>
-    <p class="card-text">
-    	
-   
-    
-  </div></div></div> 
-  
-  
-
-  
-</div>
-
-</div>
-    
+    <div class="col-md-4">
+    	<!--Card-->
+    	<div class="card mb-4 box-shadow">
+	        <!--Image-->
+	       	<%= link_to image_tag('store.jpg', class:"card-img-top") %>
+	        <!--Below Image-->
+	        <div class="card-body">
+	        	<!--Item-Name-->
+    <h3 class="card-title">Welcome to <br> A &amp; M Creamery</h3>
+     <p class="card-text">	A &amp; M Creamery is a chain of the best ice-cream shops in Pittsburgh.
+			We have shops in 3 states: Ohio, Pennsylvania & West Virginia.
+			Our ice-cream flavors are unique and irresistible. We encourage you to visit one of our small, but aesthetically pleasing chains.
+			Check out our website to learn more about us!</p>
+	          <!--Affiliate Section-->
+	        	<div class="d-flex justify-content-between align-items-center">
+	        		
+	      		</div>
+	      		
+          	</div>
+      	</div>      	 <!--Specification Table-->
+    </div>
+	 <div class="col-md-4">
+	   <h3>Our Stores</h3>
+	 <table class="table table-responsive table-striped">
+		    	<tbody>
+		          <tr>
+		            <% for store in @stores %>
+		            
+		          <th><%=  "#{store.name}"  %></th> 
+		          <td><%= "#{store.street}" %> <br> <%= "#{store.city}" ", " "#{store.state}" " " "#{store.zip}" %>
+		          <br>
+		          <%= "#{store.phone}" %>
+		          
+		          </td></tr><% end %>
+		         
+		         
+		          
+		        </tbody>
+		    </table>
+			 </div>
+  </div>
+</div> 

@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  # everyone can run new and create actions, but only those actions
+	before_action :check_login, :except => [:new, :create]
+	authorize_resource
+	
      def index
        @user = User.all
   end

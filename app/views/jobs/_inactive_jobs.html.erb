@@ -1,0 +1,16 @@
+<% unless @inactive_jobs.empty? %>
+
+
+<div class="card" >
+  <div class="card-body">
+    <h5 class="card-title">Inactive Job</h5>
+    <ul>
+      <% @inactive_jobs.each do |job| %>
+        <li><%= link_to job.name, job_path(job) %></li>
+      <% end %>
+    </ul>
+    
+    
+     </div>
+</div>
+<% end %>

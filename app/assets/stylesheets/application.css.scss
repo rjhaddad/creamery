@@ -20,11 +20,34 @@
     text-align: right;
 }
 th {
-    background-color: #FFB6C1;
+    background-color: #fbc61e;
+}
+.customLink {
+  color: #6b6962;
+  text-decoration: none;
+}
+.customLink:hover {
+  color:#fbc61e;
+    text-decoration: none;
+
+}
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+bottom: .5em;
 }
 .card mb-3{
   height:100%;
+  
 }
+.card {display:inline-block; height:100%; margin-top:0px; vertical-align: top;}
 .wrapper {
   min-height: 100vh;
   background-size: cover;
