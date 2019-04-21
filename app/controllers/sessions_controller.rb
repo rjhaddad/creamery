@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
           redirect_to home_path, notice: "Logged in!"
         end
       else
-        flash[:notice] = "Email or password is invalid"
+        flash[:alert] = "Email or password is invalid"
         render "new"
       end
     end

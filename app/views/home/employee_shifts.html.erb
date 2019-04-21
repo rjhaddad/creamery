@@ -1,13 +1,10 @@
 <p>&nbsp;</p>
 
-<div class="row">
+<div class="card" style="width: 16rem;">
+	<center><h3>Today's Shifts</h3></center>
+<center><h6 class="card-subtitle mb-2 text-muted"><%= Date.current.strftime("%A %B %d, %Y") %></h6>
 
-	<div class="small-4 columns">
-	<h3>Today's Shifts</h3>
-	</div>
-	
-	<div class="small-8 columns">
-
+  <div class="card-body">
 		<% unless @today_shifts.nil? or @today_shifts.empty? %>
 			<table class="table table-striped">
 			    <thead>
@@ -40,6 +37,9 @@
 			      <% end %>
 			    </tbody>
 		  </table>
+ 
+		  
+		  
 	  <%= will_paginate @today_shifts, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next", param_name: "today_shifts" %>  
 
 	  <% else %>
@@ -47,14 +47,14 @@
 	  <% end %>
 
 	 </div>
+	 </center>
+	 </div>
 
-	 <p>&nbsp;</p>
 
-	<div class="small-4 columns">
-		<h3>Past Shifts</h3>
-	</div>
+<div class="card" style="width: 20rem;">
+	<center>	<h3>Past Shifts</h3> </center>
 
-	<div class="small-8 columns">
+	<div class="card-body">
 		<table class="table table-striped">
 		    <thead>
 		      <tr>
@@ -91,15 +91,13 @@
 
 
 	 </div>
+</div>
 
-	 <p>&nbsp;</p>
 
+<div class="card" style="width: 20rem;">
+<center>	<h3>Upcoming Shifts</h3>
 
-	<div class="small-4 columns">
-	<h3>Upcoming Shifts</h3>
-	</div>
-
-	 <div class="small-8 columns">
+	 <div class="card-body">
 	  <% unless @upcoming_shifts.empty? %>
 		<table class="table table-striped">
 		    <thead>
@@ -120,14 +118,12 @@
 		    </tbody>
 	  	</table>
 	  <%= will_paginate @upcoming_shifts, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next", param_name: "upcoming_shifts" %>  
-	  </div>
 
 	  <%else%>
 	  	<p>You have no upcoming shifts.</p>
 	  <% end %>
-	 </div>
-
-
-	 
 
 </div>
+</center>
+</div>
+

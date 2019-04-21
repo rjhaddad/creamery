@@ -4,71 +4,48 @@
 <p>&nbsp;</p>
 
 
-<div clas= "row">
-	<div class="small-8 small-offset-5 columns">
-		<div id = "new-shift-button">
-		<%= link_to(new_employee_path, class: 'button radius warning') do %>
-		&nbsp;Add New <br/> Employee&nbsp;
+<div class="card" style="width: 16rem;">
+  <%= link_to image_tag('Nico.jpg', class:"card-img-top") %>
+  
+  <div class="card-body">
+  	<%= link_to(new_employee_path, :class => 'btn btn-dark') do %>
+		Add New Employee
 		<% end %>
-	</div>
-	</div>
+  </div>
 </div>
 
-<p>&nbsp;</p>
+<div class="card" style="width: 16rem;">
+	</br>	</br>
+  <%= link_to image_tag('store.jpg', :class => "card-img-top") %>
+  </br>	</br> </br>
 
-<div clas= "row">
-	<div class="small-4 columns">
-		<h2>Active Stores</h2>
-		<div clas= "row">
-			<div class="small-8 small-offset-3 columns">
-				<div id = "add-button">
-					<%= link_to(new_store_path, class: 'button radius warning') do %>
-						&nbsp;Add a New Store&nbsp;
+  <div class="card-body">
+  	<%= link_to(new_store_path, :class => 'btn btn-dark') do %>
+						Add a New Store
 					<% end %>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="small-8 columns">
-
-		<%= render 'stores/active_stores' %>	
+  </div>
+</div>
 
 
-	</div>
 
-	<div class="small-4 columns">
-		<h3>Active Flavors</h3>
-		<div clas= "row">
-			<div class="small-8 small-offset-3 columns">
-				<div id = "add-button">
-					<%= link_to(new_flavor_path, class: 'button radius warning') do %>
-						&nbsp;Add a New Flavor&nbsp;
-					<% end %>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="card" style="width: 16rem;">
+	
+  <div class="card-body">
+  	<%= render 'stores/active_stores' %>
+  </div>
+</div>
 
-	<div class="small-8 columns">
-		<%= render 'flavors/active_flavors' %>
 
-	</div>
+<div class="card" style="width: 16rem;">
+  <div class="card-body">
+  		<h3>Active Flavors</h3>
+  <%= render 'flavors/active_flavors' %>
+  </div>
+</div>
 
-	<div class="small-4 columns">
-		<h3>Active Jobs</h3>
-		<div clas= "row">
-			<div class="small-8 small-offset-3 columns">
-				<div id = "add-button">
-					<%= link_to(new_job_path, class: 'button radius warning') do %>
-						&nbsp;Add a New Job&nbsp;
-					<% end %>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="small-8 columns">
-		<%= render 'jobs/active_jobs' %>
-	</div>
+<div class="card" style="width: 16rem;">
+  <div class="card-body">
+  		<h3>Active Jobs</h3>
+<%= render 'jobs/active_jobs' %>
+</div>
 </div>

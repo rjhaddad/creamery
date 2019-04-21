@@ -1,5 +1,8 @@
 class ShiftsController < ApplicationController
-    
+    #before_filter :check_login
+    before_action :set_shift, only: [:show, :edit, :update, :destroy]
+	authorize_resource
+	
     def index
 		@shifts = Shift.chronological
 	end
@@ -44,4 +47,13 @@ class ShiftsController < ApplicationController
       flash[:notice] = "Successfully removed this shift from the system."
       redirect_to shifts_url
     end
+    
+    def set_shift
+    @shift = Shift.find(params[:id])
+    end
+  
+    def shift_params
+    params.require(:shift).permit(:date, :start_time)
+    end
+    
 end

@@ -20,8 +20,10 @@
       <th>Phone</th>
       <th>Role</th>
       <th>Active</th>
+      <% if current_user.role? :admin %>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
+      <%end%>
     </tr>
   </thead>
 
@@ -35,8 +37,10 @@
         <td><%= employee.phone %></td>
         <td><%= employee.role %></td>
         <td><%= employee.active %></td>
+        <% if current_user.role? :admin %>
         <td><a href = <%=  edit_employee_path(employee) %> <i class="far fa-edit"></i></a> </td>
         <td><%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

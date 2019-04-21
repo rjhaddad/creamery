@@ -5,18 +5,13 @@
 <p>&nbsp;</p>
 
 
-
-
-	<div class="small-4 columns">
+<div class="card" style="width: 16rem;">
 		<h3>Today's Shifts</h3>
-	</div>
-
-  	<div class="small-8 columns">
-
+<div class="card-body">
 		<% if @today_shifts.empty? %>
 		  <p><em>There are no shifts scheduled for today.</em></p>
 		<% else %>
-		  <table class="table table-striped">
+		  <table class="table table-hover">
 		    <thead>
 		      <tr>
 		        <th>Employee</th>
@@ -24,8 +19,6 @@
 		        <th>End Time</th>
 		        <th>Phone</th>
 		        <th>&nbsp;</th>
-
-
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -54,16 +47,13 @@
 		<% end %>
 		
 	</div>
+</div>
 
-	<p>&nbsp;</p>
-
-	<div class="small-4 columns">
+<div class="card" style="width: 16rem;">
 		<h3>Current Assignments</h3>
-	</div>
 
-	<div class="small-8 columns">
+	<div class="card-body">
 		<% state = "current" %> 
-
 		<% if @assignments.empty? %>
 		  <p><em>There are no <%= state %> assignments at this time.</em></p>
 		<% else %>
@@ -101,25 +91,19 @@
 		  </table>
 		<% end %>
 	</div>
+</div>
 
-	<p>&nbsp;</p>
-	
 
-	<div class="small-4 columns">
+
+<div class="card" style="width: 16rem;">
 		<h3>Flavors Offered</h3>
-	</div>
-  
-    <div class="small-8 columns">
+
+<div class="card-body">
 	  <%= render 'stores/list_of_flavors' %>
 
-	  <div id = "add-button">
 		  <%= link_to(new_store_flavor_path(store_id: @store), id: 'new_store_flavor_link', class: 'button tiny radius', remote: true) do %>
-		  
-		 
-		  
 		  
 		    Add New Flavor
 		  <% end %>
-		</div>
 	</div>
-	
+</div>	

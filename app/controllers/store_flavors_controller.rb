@@ -4,7 +4,7 @@ class StoreFlavorsController < ApplicationController
   authorize_resource
   
   def index
-     
+     @store_flavors = StoreFlavor.all
   end
 
   def show

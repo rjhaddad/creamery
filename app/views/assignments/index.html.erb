@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<div><p id="notice"><%= notice %></p>
 
 <h1 class = 'titles'>Assignments</h1>
 
@@ -10,8 +10,12 @@
       <th>Start date</th>
       <th>End date</th>
       <th>Pay level</th>
+      
+      <% if current_user.role? :admin %>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
+      <% end %>
+      
     </tr>
   </thead>
 
@@ -23,13 +27,18 @@
         <td><%= assignment.start_date %></td>
         <td><%= assignment.end_date %></td>
         <td><%= assignment.pay_level %></td>
+        <% if current_user.role? :admin %>
         <td><a href = <%=  edit_assignment_path(assignment) %> <i class="far fa-edit"></i></a> </td>
         <td><%= link_to 'Delete', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<a class = "mybtn" href = "assignments/new" >New Assignment</a>
+
+<a class = "btn btn-dark" href = "assignments/new" >New Assignment</a>
+
+</div>
+</br>
