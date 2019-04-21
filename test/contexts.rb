@@ -9,7 +9,8 @@ module Contexts
   include Contexts::StoreContexts
   include Contexts::EmployeeContexts
   include Contexts::AssignmentContexts
-  
+  include Contexts::UserContexts
+
  def create_contexts
     create_employees
     create_stores

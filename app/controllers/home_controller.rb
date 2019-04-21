@@ -1,8 +1,14 @@
 class HomeController < ApplicationController
   before_action :set_stores, only: [:show, :edit, :update, :destroy]
-  
-  def index
+  def guest
+    puts "**********"
     @stores = Store.active.alphabetical;
+    puts @stores
+  end
+  def index
+    puts "**********"
+    @stores = Store.active.alphabetical;
+    puts @stores
   end
 
   def home
