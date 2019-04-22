@@ -30,8 +30,8 @@ class Shift < ApplicationRecord
 
     scope :chronological, -> { order(:date, :start_time) }
     
-    scope :by_store, ->  { joins(:assignment, :store).order(:name) }
-	scope :by_employee, -> { joins(:assignment, :employee).order(:last_name, :first_name) }
+    scope :by_store, ->  { joins(:assignment, :store).order('stores.name') }
+	  scope :by_employee, -> { joins(:assignment, :employee).order('employees.last_name, employees.first_name') }
     
     
     
