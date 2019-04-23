@@ -54,6 +54,8 @@ gem 'will_paginate'
 
 gem 'nested_form'
 
+gem 'geocoder'
+gem 'gmaps4rails'
 #testing
 gem 'rails-controller-testing'
 

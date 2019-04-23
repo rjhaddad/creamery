@@ -1,3 +1,13 @@
- <h1><span>User Account:</span> <%= link_to(@user.employee.proper_name, employee_path(@user.employee)) %></h1>
+<div class="inner">
+				<div class="image-holder">
+						<%= link_to image_tag('user.png', class:"img2") %>
+				</div>
+
+<ul>
+ <br>
+ <h3><span>User:</span> <%= link_to(@user.employee.proper_name, employee_path(@user.employee)) %></h3>
  
  <p><strong>Email: </strong><%= mail_to @user.email, @user.email %></p>
+ 
+ </ul>
+</div>

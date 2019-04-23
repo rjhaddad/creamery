@@ -7,7 +7,7 @@ class User < ApplicationRecord
   # Validations
   validates_uniqueness_of :email, case_sensitive: false, on: :create
   validates_format_of :email, :with => /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :message => "is not a valid format"
-  validate :employee_is_active_in_system, on: :update
+  # validate :employee_is_active_in_system, on: :update
   validates_presence_of :password, on: :create
   validates_confirmation_of :password, message: "doesn't match confirmation"
   validates_length_of :password, minimum: 4, allow_blank: true
@@ -27,9 +27,9 @@ class User < ApplicationRecord
     "#{self.employee.proper_name}"
   end
 
-  private
-  def employee_is_active_in_system
-    is_active_in_system(:employee)
-  end
+  # private
+  # def employee_is_active_in_system
+  #   is_active_in_system(:employee)
+  # end
 
 end

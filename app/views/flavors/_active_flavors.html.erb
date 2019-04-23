@@ -2,14 +2,14 @@
 <% if @active_flavors.nil? or @active_flavors.empty? %>
   <p><em>There are no active flavors at this time.</em></p>
   <% else %>
+          <h3> Active Flavors</h3>
 
       <% @active_flavors.each do |flavor| %>
-      
+
         <div class="card" style="height:100%">
   <div class="card-body">
-    <h5 class="card-title">
       
-              <%= link_to flavor.name, flavor_path(flavor), {:class => "customLink"} %></h5>
+              <%= link_to flavor.name, flavor_path(flavor), {:class => "customLink"} %>
               
               </div>
                </div >

@@ -18,8 +18,8 @@
         
         
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "See Stores", stores_path,  { :class => "dropdown-item" } %>
-            <%= link_to "Add a Store", new_store_path,  { :class => "dropdown-item" } %>
+          <%= link_to "View Stores", stores_path,  { :class => "dropdown-item" } %>
+            <%= link_to "Add Store", new_store_path,  { :class => "dropdown-item" } %>
           </div>
         </li>
         
@@ -32,8 +32,8 @@
         
         
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "See Jobs", jobs_path,  { :class => "dropdown-item" } %>
-            <%= link_to "Add a Job", new_job_path,  { :class => "dropdown-item" } %>
+          <%= link_to "View Jobs", jobs_path,  { :class => "dropdown-item" } %>
+            <%= link_to "Add Job", new_job_path,  { :class => "dropdown-item" } %>
           </div>
         </li>
       
@@ -46,8 +46,10 @@
         
         
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         <%= link_to "See Flavors", flavors_path,  { :class => "dropdown-item" } %>
-            <%= link_to "Add a Flavor", new_flavor_path,  { :class => "dropdown-item" } %>
+         <%= link_to "View Flavors", flavors_path,  { :class => "dropdown-item" } %>
+            <%= link_to "Add Flavor", new_flavor_path,  { :class => "dropdown-item" } %>
+             <%= link_to "Add Store Flavor", new_store_flavor_path,  { :class => "dropdown-item" } %>
+            
           </div>
         </li>
 
@@ -58,8 +60,8 @@
         
         
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-       <%= link_to "See Employees", employees_path,  { :class => "dropdown-item" } %>
-            <%= link_to "Add a Employee", new_employee_path,  { :class => "dropdown-item" } %>
+       <%= link_to "View Employees", employees_path,  { :class => "dropdown-item" } %>
+            <%= link_to "Add Employee", new_employee_path,  { :class => "dropdown-item" } %>
           </div>
         </li>
 
@@ -71,8 +73,8 @@
         
         
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         <%= link_to "See Assignments", assignments_path,  { :class => "dropdown-item" } %>
-            <%= link_to "Create New Assignment", new_assignment_path, { :class => "dropdown-item" } %>
+         <%= link_to "View Assignments", assignments_path,  { :class => "dropdown-item" } %>
+            <%= link_to "Create Assignment", new_assignment_path, { :class => "dropdown-item" } %>
           </div>
         </li>
         
@@ -88,11 +90,12 @@
           <%= link_to "Completed Shifts", shifts_path,  { :class => "dropdown-item" } %>
          <%= link_to "Incomplete Shifts", incomplete_shifts_path,  { :class => "dropdown-item" } %>
 
-            <%= link_to " New Shifts", new_shifts_path,  { :class => "dropdown-item" } %>
+            <%= link_to " New Shifts", new_shift_path,  { :class => "dropdown-item" } %>
           </div>
         </li>
 
-       
+              <%= link_to "Users", users_path, { :class => "nav-link" } %>
+
 
 
       </ul>

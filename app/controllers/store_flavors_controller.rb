@@ -15,6 +15,7 @@ class StoreFlavorsController < ApplicationController
     if logged_in? and !current_user.role? :admin
       @store = Assignment.for_employee(current_user.employee_id).first.store
       @remaining_flavors = Flavor.active - @store.store_flavors.map{|n| n.flavor}
+      @stores = Store.active
     end
 
     @remaining_flavors = Flavor.active 

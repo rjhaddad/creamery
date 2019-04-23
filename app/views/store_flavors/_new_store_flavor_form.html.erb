@@ -1,15 +1,21 @@
-<div id = "new_store_flavor_form">
+
+				
+				<div class = "inner2">
+					
+					<div class="image-holder ">
+						<%= link_to image_tag('flavor.png', class:"img2") %>
+				</div>
 	<%= simple_form_for @store_flavor, html: { class: 'form-horizontal' }, remote: true do |f| %>
 	  <fieldset>
-	    <legend><%= controller.action_name.capitalize %> Flavor</legend>
+	  <center><legend><%= controller.action_name.capitalize %> Store Flavor</legend></center>  
 
-	    <%= f.input :flavor_id, :collection => @remaining_flavors, input_html: {class: "avg"} %>
-	    <%= f.input :store_id, as: :hidden, input_html: { value: params[:store_id] } %>
+	    <%= f.input :flavor_id, :collection => @remaining_flavors  %>
+	    <%= f.input :store_id, collection: Store.active.all %>
 
-	    <div class="form-actions">
-	      <%= f.submit nil, :class => 'button radius' %>
+	    <div class="float-right">
+	      <%= f.submit nil, :class => 'btn btn-dark' %>
 
-	      <a href="javascript:;" onclick="removeFlavorForm()">Cancel</a>
+      <%= link_to 'Cancel', flavors_path, :class => "btn btn-danger" %>
 	    </div>
 	  </fieldset>
 	<% end %>

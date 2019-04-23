@@ -22,8 +22,8 @@
   <tbody>
     <% @assignments.each do |assignment| %>
       <tr>
-        <td><%= link_to assignment.store_id, assignment %></td>
-        <td><%= assignment.employee_id %></td>
+        <td><%= link_to assignment.store.name, store_path(assignment.store) %></td>
+        <td><%=  assignment.employee_id %></td>
         <td><%= assignment.start_date %></td>
         <td><%= assignment.end_date %></td>
         <td><%= assignment.pay_level %></td>

@@ -1,8 +1,6 @@
-<h2>Users</h2>
-<div class="page-buttons">
-    <%= link_to "Add New User", new_user_path, :class => "btn btn-large" %>
-</div>
-<table class="display dataTable">
+<h2 class = "titles">Users</h2>
+
+<table class="table table-hover table-sm">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,7 +14,7 @@
       <tr>
         <td><%= link_to user.employee.name, user_path(user) %></td>
         <td><%= mail_to user.email, user.email %></td>
-        <td><%= user.role.capitalize %></td>
+        <td><%= user.employee.role.capitalize %></td>
         <td>
           <%= link_to "Edit", edit_user_path(user), :class => 'btn btn-mini' %>
           <%= link_to "Remove", user_path(user), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
@@ -25,3 +23,5 @@
     <% end %>
   </tbody>
 </table>
+
+    <%= link_to "Add New User", new_user_path, :class => "btn btn-large" %>

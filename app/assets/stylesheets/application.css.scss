@@ -54,6 +54,18 @@ bottom: .5em;
   background-repeat: no-repeat;
   display: flex;
   align-items: center; }
+  
+  .inner2 {
+      padding: 20px;
+  background: #fff;
+  border-style: solid;
+  border-width: 1px;
+  margin: auto;
+  max-width: 850px;
+
+   }.inner2 .image-holder {
+    width: 10%; }
+  
 .inner {
   padding: 20px;
   background: #fff;

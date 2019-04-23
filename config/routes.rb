@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   get 'home/account' => 'home#account', :as => :account
   get 'home/employee_shifts' => 'home#employee_shifts', :as => :employee_shifts
   get 'home/employee_home' => 'home#employee_home', :as => :employee_home
-  get 'home/new_shifts' => 'home#new_shifts', :as => :new_shifts
   get 'home/admin_home' => 'home#admin_home', :as => :admin_home
   get 'home/guest_homepage' => 'home#guest_homepage', :as => :guest_homepage
   get 'home/manager_home' => 'home#manager_home', :as => :manager_home

@@ -1,4 +1,4 @@
-<div> <div class="card" >
+ <div class="card" >
   <div class="card-body">
     <h5 class="card-title"> <%= render partial: "#{primary}" %>
       <% unless secondary.nil? %>
@@ -24,11 +24,13 @@
     <%= render partial: "#{sidebar}" unless sidebar.blank? %>
 
    
-
-
+<br>
+<br>
 <!-- Add a button for new instances of object -->
-<%= link_to(eval("new_#{model_name}_path"), class: "button radius") do %>
+<%= link_to(eval("new_#{model_name}_path"), class: "btn btn-dark") do %>
 
-  &nbsp;Add a New <%= model_name.capitalize %>
+  Add a New <%= model_name.capitalize %>
 <% end %>
-</div>
+
+<br>
+<br>

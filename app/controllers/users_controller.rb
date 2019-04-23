@@ -1,14 +1,15 @@
 class UsersController < ApplicationController
   # everyone can run new and create actions, but only those actions
 	before_action :check_login, :except => [:new, :create]
+	before_action :set_user, only:[:edit, :update]
 	authorize_resource
 	
      def index
-       @user = User.all
+       @users = User.all
   end
 
   def show
-     @user = User.all
+     @user = User.find(params[:id])
   end
 
   def new
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(current_user)
+    @user = User.find(params[:id])
   end
 
   def create
@@ -33,13 +34,29 @@ class UsersController < ApplicationController
 
   def update
     
-  end
+    # get current user from current_user method
+		@user = current_user
+		if @user.update_attributes(user_params)
+		  # when a new user is saved, add the user_id to the session hash
+		  # session[:user_id] = @user.id	
+		  redirect_to(user_path, :notice => 'User was successfully updated.')
+		else
+		  render :action => "edit"
+		end	
+	end
+    
+    
+
 
   def destroy
 
   end
 
   private
+  def set_user
+    @user = current_user
+  end
+  
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :employee_id)
   end

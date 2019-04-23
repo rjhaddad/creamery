@@ -5,12 +5,14 @@ class AssignmentsController < ApplicationController
     
   def index
     @assignments = Assignment.all
+    @employees = Employee.all
     @current_assignments = Assignment.current.by_store.by_employee.chronological #.paginate(page: params[:current_assignments]).per_page(15)
     @past_assignments = Assignment.past.by_employee.by_store #.paginate(page: params[:past_assignments]).per_page(15)  
   end
   
   def show
     @store = current_user.employee.current_assignment.store
+    @employee = @assignment.employee
     @upcoming_shifts = @assignment.shifts.upcoming.chronological.paginate(page: params[:upcoming_shifts]).per_page(5)
     @past_shifts = @assignment.shifts.past.chronological.paginate(page: params[:past_shifts]).per_page(5)
 

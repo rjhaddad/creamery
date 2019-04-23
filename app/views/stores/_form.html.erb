@@ -23,48 +23,56 @@
   <% end %>
   
 		<div class="form-wrapper">
+		  		      <b> <%= form.label :name %></b>
     <%= form.text_field :name, id: :store_name, :class => "form-control", placeholder: " Name" %>
   </div>
 
 <div class="form-wrapper">
+  		      <b> <%= form.label :street %></b>
     <%= form.text_field :street, id: :store_street, :class => "form-control", placeholder: "Street" %>
   </div>
 
 <div class="form-wrapper">
+  		      <b> <%= form.label :city %></b>
     <%= form.text_field :city, id: :store_city, :class => "form-control", placeholder: "City" %>
   </div>
 
 <div class="form-wrapper">
+  		      <b> <%= form.label :state %></b>
     <%= form.text_field :state, id: :store_state, :class => "form-control", placeholder: "State" %>
   </div>
 
 <div class="form-wrapper">
+  		      <b> <%= form.label :zip %></b>
     <%= form.text_field :zip, id: :store_zip, :class => "form-control", placeholder: "Zip" %>
   </div>
 
 <div class="form-wrapper">
+  		      <b> <%= form.label :phone %></b>
     <%= form.text_field :phone, id: :store_phone, :class => "form-control", placeholder: "Phone" %>
   </div>
 
 <div class="form-wrapper">
+  		      <b> <%= form.label :latitude %></b>
     <%= form.text_field :latitude, id: :store_latitude, :class => "form-control", placeholder: "Latitude" %>
   </div>
 
 <div class="form-wrapper">
+  		      <b> <%= form.label :longitude %></b>
     <%= form.text_field :longitude, id: :store_longitude, :class => "form-control", placeholder: "Longitude" %>
   </div>
 
 <div class="form-wrapper">
-  <%= form.label :active? %>
+<b>  <%= form.label :active? %></b>
     <%= form.check_box :active, id: :store_active %>
   </div>
 
 
     
-    <button>Update
-
-					</button>
-				</form>
+    <div class="form-actions">
+      <%= form.submit nil, :class => "btn btn-dark" %>
+      <%= link_to 'Cancel', stores_path, :class => "btn btn-danger" %>
+    </div>
 
 <% end %>
 </div>

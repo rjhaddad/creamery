@@ -4,6 +4,13 @@ class EmployeesController < ApplicationController
 
   def index
     @employees = Employee.all
+    
+    if current_user.role == 'admin'
+      @employees = Employee.active.alphabetical
+      
+    elsif current_user.role == 'manager'
+      @employees = current_user.employee.current_assignment.store.current_employees
+    end
     # @active_employees = Employee.active.alphabetical.paginate(page: params[:active_employees]).per_page(10)
     # @inactive_employees = Employee.inactive.alphabetical.paginate(page: params[:inactive_employees]).per_page(10)
 
@@ -30,6 +37,10 @@ class EmployeesController < ApplicationController
   end
     
   def edit
+      @employee = Employee.find(params[:id])
+  end
+
+  def show
       @employee = Employee.find(params[:id])
   end
     

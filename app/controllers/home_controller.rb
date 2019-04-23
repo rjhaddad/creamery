@@ -3,17 +3,23 @@ class HomeController < ApplicationController
   def guest
     puts "**********"
     @stores = Store.active.alphabetical;
+    @employees = Employee.active.alphabetical;
     puts @stores
+    puts @employees
   end
   def index
     puts "**********"
     @stores = Store.active.alphabetical;
+    @employees = Employee.active.alphabetical;
     puts @stores
+    puts @employees
+
   end
 
   def home
     @active_stores = Store.active
     @active_flavors = Flavor.active
+    @active_employees = Employee.active
   end
   
   

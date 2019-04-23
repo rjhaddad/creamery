@@ -8,13 +8,13 @@
 						<%= link_to image_tag('Nico.jpg', class:"img2") %>
 				</div>
 				
-<%= form_with(model: employee, local: true) do |form| %>
-  <% if employee.errors.any? %>
+<%= form_with(model: @employee, local: true) do |form| %>
+  <% if @employee.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
 
       <ul>
-      <% employee.errors.full_messages.each do |message| %>
+      <% @employee.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -52,7 +52,7 @@
 		<div class="form-wrapper">
 		  		     <b>  <%= form.label :employee_role %></b>
 
-    <%= form.text_field :role, id: :employee_role, :class => "form-control", placeholder: "Role" %>
+    <%= form.select :role, ['admin','manager','employee'], id: :employee_role, :class => "form-control", placeholder: "Role" %>
   </div>
 
 		<div class="form-wrapper">
@@ -61,7 +61,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit nil, {:class => "btn btn-dark"} %>
   </div>
 <% end %>
 </div>

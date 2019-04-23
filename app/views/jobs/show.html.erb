@@ -1,11 +1,11 @@
-<br/>
+  <div class="card">
+
+  	<br/>
   <h2>
     <%= @job.name %>
   </h2>
-
-
-
-  <div class="small-7 columns">
+  
+  
 	<%= render partial: "job_details" %>
 	<%if logged_in? and current_user.role? :admin%>
 		<%= render partial: "partials/object_options", locals: {model_name: "job", object: @job}  %>
@@ -13,14 +13,12 @@
 	<% else %>
 	    <div class="form-actions">
           <div id = "back-button">
-	      <%= link_to(jobs_path, class: 'button radius') do %>
-	        SEE ALL JOBS
+	      <%= link_to(jobs_path, class: 'btn btn-dark') do %>
+	        See all jobs
 	      <% end %>
 	      </div>
 	    </div>
 	<% end %>
 
-  </div>
-
-
-	
+<br>
+	</div>
