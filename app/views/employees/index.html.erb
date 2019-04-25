@@ -1,25 +1,31 @@
-<!-- MDBootstrap Datatables  -->
-<link href="css/addons/datatables.min.css" rel="stylesheet">
-<p id="notice"><%= notice %></p>
-
 
 
 <h1 class = 'titles'>
   All Employees
 <% if current_user.role? :manager %>
-	at the <%= @store %> Store
+	at the <%= current_user.employee.current_assignment.store.name %> Store
 <% end %>
-</h1>
 
+</h1>
+<% if @active_employees.empty? %>
+  <p><em>There are no current employees at this time.</em></p>
+<% else %>
 <table id="dtBasicExample" class="table table-hover table-sm" cellspacing="0" width="100%">  <thead>
+  
     <tr>
       <th class="th-sm">First name</th>
-      <th>Last name</th>
+      <th>Last Name <a style="color:green;" href="/employees?alphabetical=true"><i class="fas fa-arrow-up"></i></a>
+      <a style="color:red;" href= "/employees"><i class="fas fa-arrow-down"></i></a>
+      
+      </th>
       <th>Ssn</th>
       <th>Date of birth</th>
       <th>Phone</th>
       <th>Role</th>
-      <th>Active</th>
+      <th>Active
+      <a style="color:green;" href="/employees?active=true"> <i class="fas fa-check"></i></a>
+      <a style="color:red;" href="/employees?inactive=true"><i class="fas fa-times"></i></a>
+      </th>
       <% if current_user.role? :admin %>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
@@ -28,7 +34,7 @@
   </thead>
 
   <tbody>
-    <% @employees.each do |employee| %>
+    <% @active_employees.each do |employee| %>
       <tr>
         <td> <%= link_to employee.first_name, employee %> </td>
         <td><%= employee.last_name %></td>
@@ -38,17 +44,42 @@
         <td><%= employee.role %></td>
         <td><%= employee.active %></td>
         <% if current_user.role? :admin %>
-        <td><a href = <%=  edit_employee_path(employee) %> <i class="far fa-edit"></i></a> </td>
-        <td><%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+        <td><%=  link_to 'Edit', edit_employee_path(employee), :class => 'btn btn-mini' %> </td>
+        <td><%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
+
         <%end%>
+
+
       </tr>
     <% end %>
-  </tbody>
+    
+  
+</tbody>
 </table>
+<% end %>
+
+
+<select class="browser-default custom-select" style="width:auto;float:right;" onchange="location = this.value;">
+    <option value="" disabled selected>Filter By Role</option>
+    <option value="/employees">All </option>
+  <option value="/employees?admins=true">Admins </option>
+  <option value="/employees?managers=true">Managers</option>
+  <option value="/employees?regulars=true">Employees</option>
+</select>
+<br><br>
+<select class="browser-default custom-select" style="width:auto;float:right;" onchange="location = this.value;">
+    <option value="" disabled selected>Filter By Age</option>
+    <option value="/employees">All </option>
+      <option value="/employees?is_18_or_older=true">18+</option>
+  <option value="/employees?younger_than_18=true"> Younger than 18 </option>
+</select>
 
 <br>
+<% if logged_in? and current_user.role? :admin %>
 
 <a class = "btn btn-dark" href = "employees/new" >New Employee</a>
+<% end %>
 
 <br>
 <br>

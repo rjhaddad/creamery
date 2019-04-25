@@ -21,6 +21,7 @@ module Contexts
  def create_contexts
     create_stores
     create_employees
+    create_flavors
     create_assignments
     create_jobs
     create_shifts
@@ -33,6 +34,7 @@ module Contexts
     remove_stores
     remove_employees
     remove_assignments
+    remove_flavors
     remove_jobs
     remove_shifts
     remove_shift_jobs

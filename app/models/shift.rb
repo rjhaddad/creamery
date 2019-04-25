@@ -24,6 +24,8 @@ class Shift < ApplicationRecord
     scope :past, -> { where('date < ?', Date.today) }
     scope :upcoming, -> { where('date >= ?', Date.today) }
     
+    scope :after_today, -> { where('date > ?', Date.current) }
+
     scope :for_next_days, lambda {|x| where('date BETWEEN ? AND ?', Date.today, x.days.from_now.to_date) }
     scope :for_past_days, lambda {|x| where('date BETWEEN ? AND ?', x.days.ago.to_date, 1.day.ago.to_date) }
     #scope :for_next_days_after_today, ->(x) { where('date BETWEEN ? AND ?', 1.day.from_now.to_date, x.days.from_now.to_date) }

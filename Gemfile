@@ -56,6 +56,7 @@ gem 'nested_form'
 
 gem 'geocoder'
 gem 'gmaps4rails'
+gem "has_scope"
 #testing
 gem 'rails-controller-testing'
 

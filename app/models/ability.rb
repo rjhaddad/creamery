@@ -11,6 +11,8 @@ class Ability
 
   elsif user.role? :manager
       # can see a list of all users
+          # can :manage, :all
+
       can :read, Store
       can :read, Shift
       can :read, Job

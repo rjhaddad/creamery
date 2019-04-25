@@ -5,6 +5,7 @@ class StoreFlavorsController < ApplicationController
   
   def index
      @store_flavors = StoreFlavor.all
+     @stores = Store.all
   end
 
   def show

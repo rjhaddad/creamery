@@ -75,21 +75,7 @@ class Assignment < ApplicationRecord
     @destroyable = self.shifts.past.empty?
   end
   
-  def terminate_assignment
-    terminate_all_future_shifts if !@destroyable.nil? && @destroyable == false
-    self.update_attribute(:end_date, Date.current)if !@destroyable.nil? && @destroyable == false
-    @destroyable = nil
-  end
-  
-    def end_previous_assignment
-    current_assignment = Employee.find(self.employee_id).current_assignment
-    if current_assignment.nil?
-      return true 
-    else
-      terminate_all_future_shifts
-      current_assignment.update_attribute(:end_date, self.start_date.to_date)
-    end
-  end
+
   
 end
 

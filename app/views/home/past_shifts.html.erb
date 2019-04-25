@@ -1,13 +1,16 @@
 <br/>
 <h2>Past Shifts</h2>	
 <br/>
-	<div class="row">
+	<div>
 
 	<div class="small-4 columns">
 		<h4>INCOMPLETE SHIFTS</h4>
 	</div>
 
 	 <div class="small-8 columns">
+		<% if @past_shifts_i.empty? %>
+  <p><em>There are no incomplete shifts at this time.</em></p>
+<% else %>
 		
 		<table class="table table-striped">
 		    <thead>
@@ -44,9 +47,8 @@
 		      <% end %>
 		    </tbody>
 	  </table>
-	  <%= will_paginate @past_shifts_i, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next", param_name: "past_shifts_i" %>  
 	 </div>
-	 
+	 <%end%>
 	<p>&nbsp;</p>
 
 	<div class="small-4 columns">
@@ -79,15 +81,14 @@
 			          	</div>
           		  </td>
 		          <td>
-		            <%= link_to(image_tag("edit.gif"), edit_shift_path(shift)) %>
+		            <%= link_to "edit", edit_shift_path(shift) %>
           		  </td>
           		   <td>
-				    <%= link_to(image_tag("trash.gif"), shift_path(shift), method: 'delete', data: {confirm: "Are you sure you want to permanently delete this shift?"}) %>
+				    <%= link_to "del", shift_path(shift), method: 'delete', data: {confirm: "Are you sure you want to permanently delete this shift?"} %>
           		  </td>
 		        </tr>
 		      <% end %>
 		    </tbody>
 	  </table>
-	  <%= will_paginate @past_shifts_c, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next", param_name: "past_shifts_c" %>  
 	 </div>
 	</div>

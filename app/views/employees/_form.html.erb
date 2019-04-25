@@ -1,7 +1,4 @@
-<head><!-- MATERIAL DESIGN ICONIC FONT -->
-		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 
-</head>
 
 <div class="inner">
 				<div class="image-holder">
@@ -59,9 +56,33 @@
     <b> <%= form.label :active? %></b>
     <%= form.check_box :active, id: :employee_active %>
   </div>
+  
+  <br>
+<div class="span5">
+        <legend>User Information</legend>
+          <div id="employee_user">
+            <%= form.fields_for :user do |f| %>
+            
+            <b> <%= f.label :email %></b>
+      <%= f.text_field :email,:class => "form-control" %>
+      
+      <b> <%= f.label :password %></b>
+      <%= f.password_field :password,:class => "form-control" %>
 
+
+      <% end %> 
+          </div> 
+        </div>
+        
+        
+         
   <div class="actions">
-    <%= form.submit nil, {:class => "btn btn-dark"} %>
+    <%= form.submit nil, :class => "btn btn-dark"  %>
+    
+    
   </div>
+        
+      </div>
+ 
 <% end %>
 </div>

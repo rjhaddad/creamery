@@ -1,0 +1,36 @@
+<% if logged_in? and current_user.role? :admin %>
+	<br/>
+	<h2> Store Flavors</h2>
+
+	<br/>
+
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+      <th>Store</th>
+      <th>Flavor</th>
+  
+    </tr>
+  </thead>
+  <tbody>
+    <% @store_flavors.each do |s| %>
+      <tr>
+        <td><%= link_to s.store.name, store_path(s.store) %></td>
+         <td><%= link_to s.flavor.name, flavor_path(s.flavor) %></td>
+
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+    <%= link_to "Add New User", new_user_path, :class => "btn btn-large" %>
+
+<% else %>
+	<br/>
+	<h2>Flavors</h2>
+	<div id = "subtitle"><p>We currently have <%= StoreFlavor.size %> unique flavor(s).</p></div>
+	<br/>
+
+
+<% end %>

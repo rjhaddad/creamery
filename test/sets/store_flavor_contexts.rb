@@ -10,11 +10,11 @@ module Contexts
     end
     
     def remove_store_flavors
-      @chocolate_cmu.delete
-      @chocolate_oakland.delete
-      @strawberry_cmu.delete
-      @strawberry_oakland.delete
-      @mint_chip_cmu.delete
+      @chocolate_cmu.destroy
+      @chocolate_oakland.destroy
+      @strawberry_cmu.destroy
+      @strawberry_oakland.destroy
+      @mint_chip_cmu.destroy
     end
   end
 end

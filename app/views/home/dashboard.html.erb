@@ -5,7 +5,7 @@
 <p>&nbsp;</p>
 
 
-<div class="card" style="width: 16rem;">
+<div class="card" style="width: 35rem;">
 		<h3>Today's Shifts</h3>
 <div class="card-body">
 		<% if @today_shifts.empty? %>
@@ -49,7 +49,7 @@
 	</div>
 </div>
 
-<div class="card" style="width: 16rem;">
+<div class="card" style="width: 35rem;">
 		<h3>Current Assignments</h3>
 
 	<div class="card-body">
@@ -69,13 +69,13 @@
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <% @current_assignments.each do |assignment| %>
+		      <% @assignments.each do |assignment| %>
 		        <tr>
 		          <td><%= link_to assignment.employee.name, employee_path(assignment.employee) %></td>
 		          <td><%= number_to_phone assignment.employee.phone unless assignment.employee.phone.nil?  %></td>
 		          <td class="centered"><%= assignment.employee.role.capitalize %></td>
 		          
-		          	<% if assignment.employee.role? :employee or assignment.employee == current_user.employee %>
+		          	<% if  assignment.employee == current_user.employee %>
 		          	<td><div id = "view-jobs-button">
 			            <%= link_to(assignment_path(assignment), class: 'button tiny radius warning') do %>
 			              &nbsp;Add Shift&nbsp;

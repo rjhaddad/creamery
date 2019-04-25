@@ -1,10 +1,12 @@
 <br/>
 <h2>Future Shifts</h2>	
 
-	<div class="row">
+	<div >
 
 	<div class="small-12 small-offset-3 columns">
-
+		<% if @future_shifts.empty? %>
+  <p><em>There are no future shifts at this time.</em></p>
+<% else %>
 		<table class="table table-striped">
 		    <thead>
 		      <tr>
@@ -32,6 +34,6 @@
 		      <% end %>
 		    </tbody>
 	  </table>
-	  <%= will_paginate @future_shifts, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next", param_name: "future_shifts" %>  
+	  <%end%>
 	 </div>
 	</div>

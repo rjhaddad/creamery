@@ -5,8 +5,17 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th width="225">Store Name</th>
-        <th width="225">Store Phone</th>
+        <th>Store Name <a style="color:green;" href="/stores?alphabetical=true"><i class="fas fa-arrow-up"></i></a>
+      <a style="color:red;" href= "/stores"><i class="fas fa-arrow-down"></i></a>
+      
+      </th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th> Phone</th>
+        <th> Latitude</th>
+        <th>Longitude</th>
 
 
       </tr>
@@ -15,7 +24,13 @@
       <% @active_stores.each do |store| %>
         <tr>
           <td><%= link_to store.name, store_path(store) %></td>
+          <td><%=  store.street %></td>
+          <td><%=  store.city %></td>
+          <td><%=  store.state %></td>
+          <td><%=  store.zip %></td>
           <td><%= number_to_phone store.phone %></td>
+          <td><%=  store.latitude %></td>
+          <td><%=  store.longitude %></td>
 
             </td>          
           <% end %>

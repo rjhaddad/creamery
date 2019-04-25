@@ -49,7 +49,10 @@ class UsersController < ApplicationController
 
 
   def destroy
-
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "Successfully removed #{@user.proper_name} from website."
+    redirect_to users_url
   end
 
   private
@@ -57,8 +60,12 @@ class UsersController < ApplicationController
     @user = current_user
   end
   
-  def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :employee_id)
-  end
+ def user_params
+      if current_user && current_user.role?(:admin)
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :active)  
+      else
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :active)
+      end
+    end
 
 end

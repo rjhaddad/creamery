@@ -93,7 +93,6 @@ class EmployeeTest < ActiveSupport::TestCase
     
     # test the scope 'regulars'
     should "shows that there are 3 regular employees: Ed, Cindy and Ralph" do
-      assert_equal 3, Employee.regulars.size
       assert_equal ["Crawford","Gruberman","Wilson"], Employee.regulars.map{|e| e.last_name}.sort
     end
     

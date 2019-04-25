@@ -21,14 +21,14 @@
 
   <div class="card-body">
   	<%= link_to(new_store_path, :class => 'btn btn-dark') do %>
-						Add a New Store
+						Add New Store
 					<% end %>
   </div>
 </div>
 
 
 
-<div class="card" style="width: 16rem;">
+<div class="card" style="width: 50rem;">
 	
   <div class="card-body">
   	<%= render 'stores/active_stores' %>
@@ -38,7 +38,6 @@
 
 <div class="card" style="width: 16rem;">
   <div class="card-body">
-  		<h3>Active Flavors</h3>
   <%= render 'flavors/active_flavors' %>
   </div>
 </div>

@@ -1,6 +1,10 @@
 class StoresController < ApplicationController
     before_action :set_store, only: [:show, :edit, :update, :destroy]
     authorize_resource
+    has_scope :active
+    has_scope :inactive
+    has_scope :alphabetical
+
     
   def index
     @stores = Store.active.alphabetical

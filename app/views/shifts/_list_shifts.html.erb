@@ -2,8 +2,11 @@
 	<br/>
 	<h2>Today's Shifts</h2>
 	<br/>
-	<div class = "row">
+	<div>
 		<div class = "small-12 small-offset-3 columns">
+								<% if @today_shifts.empty? %>
+  <p><em>There are no shifts for today.</em></p>
+<% else %>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -27,17 +30,16 @@
 							</div>
 						</td>
 						<td>
-							<%= link_to(image_tag("edit.gif"), edit_shift_path(shift)) %>
+							<%= link_to(image_tag("edit.png"), edit_shift_path(shift)) %>
 						</td>
 						<td>
-							<%= link_to(image_tag("trash.gif"), shift_path(shift), method: 'delete', data: {confirm: "Are you sure you want to permanently delete this shift?"}) %>
-							
+							<%= link_to(image_tag("delete.png"), shift_path(shift), method: 'delete', data: {confirm: "Are you sure you want to permanently delete this shift?"}) %>
 						</td>
 					</tr>
 					<% end %>
 				</tbody>
 			</table>
-
+<%end%>
 			<br/>
 			<div class="form-actions">
 				<div id = "add-button">

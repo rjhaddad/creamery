@@ -9,10 +9,10 @@ module Contexts
     end
     
     def remove_flavors
-      @chocolate.delete
-      @vanilla.delete
-      @strawberry.delete
-      @mint_chip.delete
+      @chocolate.destroy
+      @vanilla.destroy
+      @strawberry.destroy
+      @mint_chip.destroy
     end
   end
 end

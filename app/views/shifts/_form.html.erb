@@ -1,15 +1,30 @@
-<div class="inner">
+<div class="inner2">
 <div class="image-holder">
 	<%= link_to image_tag('shift.gif', class:"img2") %>
 </div>
 
-<%= form_with(model: @shift, local: true) do |f| %>
+	<%= simple_form_for @shift, html: { class: 'form-horizontal' }, remote: true do |f| %>
+	
+	
+	  <% if @shift.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shift.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% @shift.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+	  <fieldset>
 
     <h3><%= controller.action_name.capitalize %> Shift</h3>
-    
-      <div class="form-wrapper">
-            <%= f.label :assignment_id %><br>
-    <%= f.select :assignment_id, :collection => Assignment.current.for_store(@store).by_employee, :class => "form-control" %>
+          <div class="form-wrapper" >
+    <%= f.input :assignment_id, collection: Assignment.current.ids %>
   </div>
 
       <div class="form-wrapper">
@@ -32,7 +47,7 @@
       <%= link_to 'Cancel', shifts_path, :class => 'btn btn-danger' %>
     </div>
 
-
+</fieldset>
 
 <% end %>
 

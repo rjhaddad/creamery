@@ -6,7 +6,7 @@ class Employee < ApplicationRecord
   #phase4
   before_destroy :is_destroyable?
   after_destroy :clean_up_assignment_and_shifts
-  after_rollback :terminate_employee
+  #after_rollback :terminate_employee
   
   # Relationships
   has_many :assignments
@@ -16,7 +16,8 @@ class Employee < ApplicationRecord
   has_one :user, dependent: :destroy
   has_many :shifts, through: :assignments
 
-  #accepts_nested_attributes_for :user, reject_if: lambda { |user| user[:email].blank? } #, allow_destroy: true
+  accepts_nested_attributes_for :user
+  #, reject_if: lambda { |user| user[:email].blank? } #, allow_destroy: true
 
   
   # Validations
@@ -36,7 +37,8 @@ class Employee < ApplicationRecord
   scope :managers,        -> { where(role: 'manager') }
   scope :admins,          -> { where(role: 'admin') }
   scope :alphabetical,    -> { order('last_name, first_name') }
-  
+    scope :for_store,       ->(store_id) { joins(:assignments).where(assignments: {store_id: store_id, end_date: nil})}
+
   # Other methods
   def name
     "#{last_name}, #{first_name}"
@@ -98,20 +100,7 @@ class Employee < ApplicationRecord
     @destroyable = nil
   end
 
-  def end_current_assignment
-    current_assignment = self.current_assignment    
-    unless current_assignment.nil?
-      current_assignment.update_attribute(:end_date, Date.current)
-    end
-  end
 
-  def terminate_employee
-    if !@destroyable.nil? && @destroyable == false
-      remove_upcoming_shifts
-      end_current_assignment
-    end
-    @destroyable = nil
-  end
 
 end
 

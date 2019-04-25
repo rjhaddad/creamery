@@ -1,10 +1,23 @@
 <div class="inner2">
+	
+
+				
 <br/>
 <h2>
 <%= @flavor.name %>
 </h2>
 
-
+<% if @flavor.name == "Vanilla"  %>
+<div class="image2">
+						<%= link_to image_tag('vanilla.png', class:"img2") %>
+				</div>
+				
+				<% elsif @flavor.name == "Chocolate" %>
+<div class="image3">
+						<%= link_to image_tag('choco.png', class:"img2") %>
+				</div>				
+				
+<%end%>
 		<%= render partial: "flavor_details" %>
 		<%if logged_in? and current_user.role? :admin%>
 			<%= render partial: "partials/object_options", locals: {model_name: "flavor", object: @flavor}  %>
@@ -12,9 +25,11 @@
 			<div class="form-actions">
 				<div id = "back-button">
 					<%= link_to(flavors_path, class: 'button radius') do %>
-					SEE ALL FLAVORS
+					See all flavors
 					<% end %>
 				</div>
 			</div>
 		<% end %>
+		
+			
 </div>

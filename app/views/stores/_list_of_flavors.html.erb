@@ -10,7 +10,7 @@
 	    <tbody>
 	          <% for store_flavor in @store_flavors %>
 	          <tr>
-	          <td><%= link_to store_flavor.id, store_flavor_path(store_flavor) %></td>
+	          <td><%= link_to store_flavor.flavor.name, flavor_path(store_flavor.flavor) %></td>
 	          <td>
 	          	
       		  </td>
