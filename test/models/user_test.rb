@@ -20,19 +20,26 @@ should have_secure_password
   should validate_uniqueness_of(:email).case_insensitive
 
   context "Creating a context for users" do
-    # setup do 
-    #   create_employees
-    #   create_users
-    # end
+    setup do 
+      create_employees
+      create_users
+    end
     
-    # teardown do
-    #   remove_employees
-    #   remove_users
-    # end
+    teardown do
+      remove_employees
+      remove_users
+    end
 
        should "shows proper name as first and last name" do
       assert_equal "Alex Heimann", @user.employee.proper_name
     end 
+
+    # test role? method
+    should "have working role? method" do 
+      assert @reem_user.role?(:manager)
+      deny @reem_user.role?(:admin)
+      assert @reem_user.role?(:admin)
+    end
 
   end
 end

@@ -55,5 +55,13 @@ FactoryBot.define do
     association :store
     association :flavor
   end
+  
+    factory :user do
+    association :employee
+    email {"usermail@example.com"}
+    password_digest {"$2a$10$o6xZS3B73OZ8GqRoM6uGPOEzZL0pOh6Yhk3qIMp2Qr2Fap.bshK5S"}
+    # password {"secret"}
+    # password_confirmation {"secret"}
+  end
 
 end

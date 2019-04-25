@@ -23,9 +23,9 @@ class Job < ApplicationRecord
     @destroyable = nil
   end
 
-  def make_inactive
-    self.update_attribute(:active, false)
-  end
+  # def make_inactive
+  #   self.update_attribute(:active, false)
+  # end
   
   
 end

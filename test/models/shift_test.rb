@@ -88,7 +88,21 @@ class ShiftTest < ActiveSupport::TestCase
       remove_shift_jobs    
     end
 
+    # test start_now method
+    should "have start_now method that updates database" do 
+      @ben_shift1.start_now
+      @ben_shift1.reload
+      date_shift = Time.current - Time.local(2000,1,1,0,0,0)
+      assert_in_delta(Time.current.to_i - date_shift, @ben_shift1.end_time.in_time_zone.to_i, 50400.962728738785)
+    end
 
+    # test end_now method
+    should "have end_now method that updates database" do 
+      @ben_shift1.end_now
+      @ben_shift1.reload
+      date_shift = Time.current - Time.local(2000,1,1,0,0,0)
+      assert_in_delta(Time.current.to_i - date_shift, @ben_shift1.end_time.in_time_zone.to_i, 50000)
+    end
 
     
   end
