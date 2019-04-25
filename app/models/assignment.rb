@@ -75,7 +75,11 @@ class Assignment < ApplicationRecord
     @destroyable = self.shifts.past.empty?
   end
   
-
+  def terminate_assignment
+    terminate_all_future_shifts if !@destroyable.nil? && @destroyable == false
+    self.update_attribute(:end_date, Date.current)if !@destroyable.nil? && @destroyable == false
+    @destroyable = nil
+  end
   
 end
 
