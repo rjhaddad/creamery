@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   resources :sessions
   resources :shift_jobs
   resources :store_flavors
+  
+  # Set the root url
 
+  root :to => 'home#index' 
 
   get 'signup' => 'users#new', :as => :signup
   get 'login' => 'sessions#new', :as => :login
@@ -39,8 +42,5 @@ Rails.application.routes.draw do
   patch 'start_shift/:id' => 'shifts#start_shift', as: :start_shift
   patch 'end_shift/:id' => 'shifts#end_shift', as: :end_shift
 
-  
-  # Set the root url
 
-  root :to => 'home#index' 
 end
