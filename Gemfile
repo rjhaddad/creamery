@@ -45,15 +45,18 @@ gem 'simple_form'
 gem 'font-awesome-sass', '~> 5.8.1'
 #jquery for bootstrap
 gem 'jquery-rails'
-
+gem 'popper_js', '~> 1.14.5'
+gem 'tether-rails'
 
 gem 'cancancan'
 
 gem 'will_paginate'
 
+gem 'nested_form'
+
 gem "has_scope"
 #testing
-# gem 'rails-controller-testing'
+gem 'rails-controller-testing'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -72,6 +75,10 @@ group :development do
   gem 'sqlite3', '~> 1.3.6'
 end
 
+group :production do
+  gem 'pg'
+end
+
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
@@ -85,11 +92,8 @@ group :test do
   gem 'shoulda'
   gem 'shoulda-matchers'
   gem 'simplecov'
+  
+  
 end
-
-group :production do
-  gem 'pg'
-end
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
