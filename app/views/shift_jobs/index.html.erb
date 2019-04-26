@@ -1,0 +1,40 @@
+<%= link_to 'New Shift Job', new_shift_job_path %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+
+      <th scope="col">ShiftJob</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+ 
+    </tr>
+  </thead>
+  <tbody>
+    
+      <% if current_user.role? :admin %>
+
+      <% @shift_jobs.each do |shift_job| %>
+        <tr>
+          <td><%= link_to shift_job.id, shift_job_path(shift_job) %></td>
+          <td><%= link_to 'Edit', edit_shift_job_path(shift_job), :class=> "btn btn-warning" %></td>
+          <td><%= link_to 'Destroy', shift_job, confirm: 'Are you sure?', method: :delete, :class=> "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    
+      <% else %>
+      <% @shift_jobs_managers.each do |shift_job| %>
+        <tr>
+          <td><%= link_to shift_job.id, shift_job_path(shift_job) %></td>
+          <td><%= link_to 'Edit', edit_shift_job_path(shift_job), :class=> "btn btn-warning" %></td>
+          <td><%= link_to 'Destroy', shift_job, confirm: 'Are you sure?', method: :delete, :class=> "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+      
+      <% end %>
+      
+      
+    
+  </tbody>
+</table>
+<br>
+<br>

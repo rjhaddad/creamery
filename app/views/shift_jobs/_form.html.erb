@@ -1,0 +1,41 @@
+<%= simple_form_for(@shift_job) do |f| %>
+  <% if @shift_job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shift_job.errors.count, "error") %> prohibited this shift_job from being saved:</h2>
+
+      <ul>
+      <% @shift_job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-row">
+  
+      <div class="form-group col-md-4">
+      <% if current_user.role? :admin %>
+      
+      <%= f.input :shift_id, :class => "form-control", collection: Shift.active.all %>
+      <% else %>
+      
+      <%= f.input :shift_id, :class => "form-control", collection: (Shift.where(assignment_id: Assignment.for_store(current_user.employee.current_assignment.store_id))).ids  %>
+      <% end %>
+      </div>
+</div>
+
+<div class="form-row">
+  
+  <div class="form-group col-md-2">
+    <label for="job_id"><%= f.label :job_id %></label>
+    <%= f.text_field :job_id, :class => "form-control" %>
+  </div>
+
+</div>
+
+
+<%= f.submit "Submit", :class => 'btn btn-primary' %>
+<br/>
+
+<br/>
+<% end %>
