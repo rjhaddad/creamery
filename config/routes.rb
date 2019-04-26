@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  
+    # Set the root url
+
+  root :to => 'home#index' 
+  
     # Routes for main resources
   resources :stores
   resources :employees
@@ -11,9 +16,7 @@ Rails.application.routes.draw do
   resources :shift_jobs
   resources :store_flavors
   
-  # Set the root url
 
-  root :to => 'home#index' 
 
   get 'signup' => 'users#new', :as => :signup
   get 'login' => 'sessions#new', :as => :login
