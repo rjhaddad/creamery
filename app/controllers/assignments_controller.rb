@@ -56,7 +56,13 @@ class AssignmentsController < ApplicationController
         flash[:notice] = "Assignment #{@assignment.employee.proper_name} successfully removed"
         redirect_to assignments_url
     end
-    
+  def update
+    if @assignment.update(assignment_params)
+      redirect_to assignments_path, notice: "#{@assignment.employee.proper_name}'s assignment to #{@assignment.store.name} is updated."
+    else
+      render action: 'edit'
+    end
+  end  
  private
   def set_assignment
     @assignment = Assignment.find(params[:id])

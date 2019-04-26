@@ -77,9 +77,11 @@
 		          
 		          	<% if  assignment.employee == current_user.employee %>
 		          	<td><div id = "view-jobs-button">
+		          		<% if current_user.role? :admin %>
+
 			            <%= link_to(assignment_path(assignment), class: 'button tiny radius warning') do %>
 			              &nbsp;Add Shift&nbsp;
-			            <% end %></td>
+			            <% end %><% end %></td>
 		        	</div>
 		        	<% else %>
 		        		<td>&nbsp;</td>
@@ -100,10 +102,11 @@
 
 <div class="card-body">
 	  <%= render 'stores/list_of_flavors' %>
-
+<% if current_user.role? :admin %>
 		  <%= link_to(new_store_flavor_path(store_id: @store), id: 'new_store_flavor_link', class: 'button tiny radius', remote: true) do %>
 		  
 		    Add New Flavor
-		  <% end %>
+		  <% end %>		  <% end %>
+
 	</div>
 </div>	
